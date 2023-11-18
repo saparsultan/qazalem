@@ -1,0 +1,254 @@
+.publdet {
+  &__container {
+    margin-top: 102px;
+  }
+
+  &-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+
+  &-content {
+    &-wrap {
+      flex: 0 0 66.66667%;
+      max-width: 66.66667%;
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+    &__preview {
+      width: 100%;
+      max-width: 100%;
+      height: 400px;
+      max-height: 400px;
+      background-color: #f2f2f2;
+      border-radius: 12px;
+      margin-bottom: 1.5em;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  &-aside {
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%;
+    padding-right: 15px;
+    padding-left: 15px;
+    &-wrapper {
+      padding: 1em;
+      border-radius: 10px;
+      background-color: var(--light-color);
+      border: 1px solid rgba(175, 175, 175, .3);
+    }
+    &__title {
+      width: max-content;
+      font-size: 1rem;
+      padding: 0.5em 0.75em;
+      margin-bottom: 1.25em;
+      background-color: #f2f2f2;
+      border-radius: 5px;
+    }
+  }
+
+  &-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1em;
+    &__item {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: .75em;
+    }
+
+    &__head {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      font-size: .875rem;
+      color: #616161;
+    }
+
+    &__tag {
+      font-size: .875rem;
+      margin-bottom: 0;
+    }
+
+    &__link {
+      font-size: 0.938rem;
+      font-weight: 600;
+      line-height: 133%;
+    }
+  }
+}
+
+.article {
+  &-widget {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1em;
+
+    &__item {
+      display: flex;
+      font-size: .875rem;
+      font-weight: 500;
+
+      &--left {
+        gap: 1em;
+      }
+    }
+
+    &__icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    &__back {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: .5em;
+      cursor: pointer;
+      svg {
+        width: 28px;
+        height: 28px;
+        path {
+          fill: var(--base-color);
+        }
+      }
+
+      span {
+        font-weight: 600;
+        margin-left: 0.375em;
+      }
+      &--small {
+        margin-bottom: 0.75em;
+        opacity: .7;
+        svg {
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
+
+    &__date {
+      display: flex;
+      align-items: center;
+      gap: 0.42857142857142855em;
+    }
+
+    &__share {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    &__rss {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &__eye {
+      display: flex;
+      align-items: center;
+      gap: 0.42857142857142855em;
+    }
+  }
+}
+
+.event-date {
+  &-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 1em;
+    gap: 1.25em;
+    padding: 1em 1em 1em 1.25em;
+    border-radius: 10px;
+    background-color: var(--light-color);
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.06);
+
+    &__item {
+      small {
+        font-weight: 500;
+      }
+    }
+
+    &__text {
+      font-weight: 600;
+      color: var(--accent-color);
+      margin-top: 0.5em;
+    }
+  }
+}
+
+.inner {
+  &-html {
+    h2, h3 {
+      padding-top: 0.75em;
+      padding-bottom: 0.75em;
+    }
+    &>p {
+      padding-bottom: 0.75em;
+      line-height: 1.6;
+    }
+    ul, ol {
+      margin-left: 40px;
+      padding-bottom: 0.75em;
+      li {
+        line-height: 1.6;
+      }
+    }
+    img {
+      margin-top: 1.5em;
+      margin-bottom: 1.5em;
+      border-radius: 12px;
+    }
+    iframe {
+      width: 100%;
+      border-radius: 12px;
+    }
+    .container {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    &__grid {
+      grid-gap: 1.25rem;
+      div {
+        a {
+          img {
+            width: 100%;
+            margin: 0;
+          }
+        }
+      }
+    }
+    .img-author {
+      img {
+        width: 100%;
+      }
+    }
+    table {
+      width: 100%!important;
+      border-collapse: collapse;
+      border: none;
+      tr {
+        &:first-child {
+          background-color: rgba(0, 0, 0, 0.1);
+          td {
+            font-weight: 600!important;
+          }
+        }
+      }
+      td {
+        line-height: 140%;
+        padding: 0.625em 1em;
+        border: 1px solid rgba(0, 0, 0, .1);
+      }
+    }
+  }
+}

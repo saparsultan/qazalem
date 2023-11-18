@@ -1,0 +1,112 @@
+.auth {
+  &-block {
+    position: relative;
+    &__login {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--base-color);
+      background-color: rgba(0, 0, 0, 0.1);
+      border: 1px solid transparent;
+      border-radius: 12px;
+      span {
+        margin-top: 1px;
+      }
+      svg {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+    &__popup {
+      position: absolute;
+      top: calc(100% + 5px);
+      padding: 0.5em;
+      right: 0;
+      color: var(--base-color);
+      background-color: var(--light-color);
+      border: 1px solid #EFEFEF;
+      box-shadow: 0 8px 8px rgba(0, 0, 0, 0.05);
+      border-radius: 12px;
+      transition: all .2s linear;
+      &.login {
+        min-width: 180px;
+      }
+    }
+    &__link {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 500;
+      padding: 0.625em 0.75em;
+      color: var(--base-color);
+      line-height: 1.25em;
+      white-space: nowrap;
+      cursor:pointer;
+      transition: color .15s ease-out;
+      svg {
+        opacity: .7;
+      }
+      &--second {
+        svg {
+          width: 22px;
+          margin-right: 2px;
+        }
+      }
+      &:hover {
+        color: var(--primary-color);
+      }
+    }
+  }
+}
+.signup {
+  &__container {
+    margin-top: 125px;
+    margin-bottom: 2.5em;;
+  }
+  &-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2.5em;
+    margin-bottom: 2.5em;
+  }
+}
+
+.login {
+  &__container {
+    margin-top: 125px;
+    margin-bottom: 2.5em;
+  }
+}
+
+.form {
+  &-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25em;
+  }
+  &-item {
+    width: 100%;
+    &--full {
+      width: 100%;
+    }
+    &-auto {
+      width: auto;
+    }
+  }
+  &-avatar {
+    .ant-upload {
+      width: 230px!important;
+      height: 230px!important;
+    }
+  }
+  &-btns {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

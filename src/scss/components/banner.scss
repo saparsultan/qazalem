@@ -1,0 +1,71 @@
+.banner {
+  text-align: center;
+  padding: 3.75em;
+  color: var(--light-color);
+  border-radius: 30px;
+  @include tablet {
+    padding: 2.5em 1.875em;
+  }
+  &__container {
+    position: relative;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  &__label {
+    display: block;
+    text-transform: uppercase;
+    margin-bottom: 1em;
+  }
+  &__title {
+    font-size: 2.5rem;
+    line-height: 120%;
+    margin-bottom: 0.4em;
+    @include tablet {
+      font-size: 2rem;
+    }
+    @include mobile {
+      font-size: 1.5rem;
+    }
+  }
+  &__desc {
+    line-height: 150%;
+    margin-bottom: 3em;
+    @include mobile {
+      margin-bottom: 2em;
+    }
+  }
+  &-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5em;
+    padding: 2.5em 7.5em;
+    color: var(--light-color);
+    border-radius: 10px;
+    overflow: hidden;
+    @include tablet {
+      padding: 2.5em;
+    }
+    @include small-tablet {
+      flex-direction: column;
+      justify-content: center;
+      gap: 1em;
+      padding: 1.5em 1em;
+    }
+    &__container {
+      padding-top: 0;
+    }
+    &__link {
+      font-size: .875rem;
+      line-height: 145%;
+    }
+  }
+  &__background {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+    z-index: -1;
+    background-color: var(--base-color);
+  }
+}

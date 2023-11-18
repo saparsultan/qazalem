@@ -1,0 +1,154 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 4.375em;
+  color: var(--light-color);
+  @include small-tablet {
+    gap: 2.8125em;
+  }
+
+  &-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2.5em;
+    @include tablet {
+      flex-direction: column;
+    }
+    @include mobile {
+      gap: 2em;
+    }
+  }
+
+  &-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 3.125em;
+    color: rgba(255, 255, 255, 0.7);
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    @include small-tablet {
+      padding-top: 2.8125em;
+    }
+    @include mobile {
+      gap: 1em;
+      flex-direction: column;
+    }
+    &__copy {
+      @include mobile {
+      font-size: .875rem;
+      }
+    }
+    &__dev {
+      @include mobile {
+        font-size: .875rem;
+      }
+    }
+  }
+
+  &__container {
+    margin-top: auto;
+    background-color: var(--base-color);
+    padding: 4.375em 0;
+    @include small-tablet {
+      padding: 2.8125em 0;
+    }
+  }
+
+  &__logo {
+    gap: 0.5em;
+    margin-bottom: 1.5em;
+  }
+
+  &-item {
+    @include mobile {
+      width: 100%;
+    }
+    &__title {
+      position: relative;
+      font-size: 1.375rem;
+      font-weight: 500;
+      margin-bottom: 1.3636363636363635em;
+      @include small-tablet {
+        font-size: 1.25rem;
+        margin-bottom: 1em;
+      }
+
+      &--one {
+        margin-bottom: 0.8em;
+      }
+    }
+
+    &__list {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 1.375em;
+      @include small-tablet {
+        grid-gap: 1em;
+      }
+    }
+
+    &__link {
+      font-weight: 500;
+      line-height: 133%;
+      color: rgba(255, 255, 255, 0.8);
+      @include mobile {
+        font-size: 1rem;
+        font-weight: 400;
+      }
+    }
+
+    &__desc {
+      width: 100%;
+      max-width: 355px;
+      line-height: 133%;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 1.75em;
+      @include small-tablet {
+        margin-bottom: 1em;
+      }
+    }
+  }
+
+  &-social {
+    .social {
+      &__item {
+        border-color: var(--primary-color);
+      }
+    }
+  }
+}
+
+.subscr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 307px;
+  background-color: rgba(39, 44, 64, 0.50);
+  border-radius: 10px;
+  overflow: hidden;
+  @include mobile {
+    width: 100%;
+  }
+
+  &__input {
+    flex: 1 1;
+    width: 100%;
+    height: 100%;
+    padding: 1em;
+    font-size: .938rem;
+    color: var(--light-color);
+    background-color: transparent;
+    outline: none;
+    border: none;
+  }
+
+  &__btn {
+    width: 48px;
+    height: 48px;
+    color: var(--light-color);
+    background-color: var(--accent-color);
+  }
+
+  //max-width: 307px;
+}
