@@ -135,5 +135,7 @@
   "closeForm": "Форманы жабу",
   "delete": "Жою",
   "deleteReview": "Пікірді жою",
-  "deleteConfirmReview": "Бұл пікірді шынымен жойғыңыз келе ме?"
+  "deleteConfirmReview": "Бұл пікірді шынымен жойғыңыз келе ме?",
+  "searchCity": "Қала бойынша іздеу",
+  "reset": "Қалпына келтіру"
 }

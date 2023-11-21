@@ -204,7 +204,7 @@ const BlogContentPageClient = ({ data, lng, noArticleWidget }) => {
             <FacebookIcon size={40} round={true} />
           </FacebookShareButton>,
           <TwitterShareButton
-            key="vk-share"
+            key="twitter-share"
             url={`${shareUrl}${pathname}`}
             title={data?.title}
             hashtag={`#${data?.subcategory?.name}`}

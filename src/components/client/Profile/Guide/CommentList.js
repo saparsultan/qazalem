@@ -34,7 +34,7 @@ const CommentList = ({ lng, infoGuide }) => {
               {infoGuide?.stars}
             </div>
             <div className="profile-comments-info__rate">
-              <Rate disabled value={infoGuide?.stars} />
+              <Rate disabled allowHalf value={infoGuide?.stars} />
             </div>
             <div className="profile-comments-info__count">
               —&nbsp;&nbsp;&nbsp;{tDefault("ratings")}: {infoGuide?.comments}

@@ -79,7 +79,18 @@ const GuideVideoList = ({
                   />
                   <div className="video-item-text__footer">
                     <div className="video-item-text__footer-type">
-                      {item?.type_ex?.name}
+                      {(() => {
+                        switch (lng) {
+                          case "kk":
+                            return item?.type_ex?.name_kk;
+                          case "ru":
+                            return item?.type_ex?.name_ru;
+                          case "en":
+                            return item?.type_ex?.name_en;
+                          case "cn":
+                            return item?.type_ex?.name_cn;
+                        }
+                      })()}
                     </div>
                     <div className="video-item-text__footer-price">
                       {item?.price} тг.

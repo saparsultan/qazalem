@@ -20,10 +20,10 @@ const FormGuideVideo = ({ lng }) => {
   const { message } = App.useApp();
   const [form] = Form.useForm();
   const { data: session } = useSession();
+  const queryClient = useQueryClient();
   const { t: tForm } = useTranslation(lng, "form");
   const { t: tMessage } = useTranslation(lng, "message");
   const { t: tDefault } = useTranslation(lng, "default");
-  const queryClient = useQueryClient();
   const [open, setOpen] = useState(false);
   const [openVideoEdit, setOpenVideoEdit] = useState(false);
   const [editVideoData, setEditVideoData] = useState(null);
@@ -55,7 +55,7 @@ const FormGuideVideo = ({ lng }) => {
   useEffect(() => {
     form.setFieldsValue({
       urlEdit: editVideoData?.url,
-      typeExEdit: editVideoData?.type_ex,
+      typeExEdit: editVideoData?.type_ex?.id,
       priceEdit: editVideoData?.price,
       descriptionVideoKzEdit: editVideoData?.description_kk,
       descriptionVideoRuEdit: editVideoData?.description_ru,

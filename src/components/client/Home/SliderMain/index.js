@@ -46,8 +46,9 @@ const SliderMain = ({ lng }) => {
         centeredSlides={true}
         speed={600}
         parallax={true}
+        loop={true}
         // autoplay={{
-        //   delay: 2500,
+        //   delay: 5000,
         //   disableOnInteraction: false,
         // }}
         pagination={{

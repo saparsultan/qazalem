@@ -13,6 +13,7 @@ import InterviewHome from "@/components/client/Home/Interview";
 import Youtube from "@/components/client/Home/Youtube";
 import MapGeo from "@/components/client/Home/MapGeo";
 import HelpfulInformation from "@/components/client/Home/HelpfulInformation";
+import OurProjects from "@/components/client/Home/OurProjects";
 import youtubeIcon from "@/assets/img/icons/youtube.svg";
 
 export default async function Home({ params: { lng } }) {
@@ -39,6 +40,18 @@ export default async function Home({ params: { lng } }) {
           </div>
         </div>
       </section>
+
+      <section className="section our-projects__container">
+        <div className="container">
+          <div className="our-projects">
+            <h2 className="title title-h2 our-projects__title">
+              {t("ourProjects")}
+            </h2>
+            <OurProjects lng={lng} />
+          </div>
+        </div>
+      </section>
+
       {/*<section className="section projects-home__container">*/}
       {/*  <div className="container">*/}
       {/*    <div className="projects-home">*/}

@@ -132,5 +132,7 @@
   "closeForm": "关闭表格",
   "delete": "删除",
   "deleteReview": "删除评论",
-  "deleteConfirmReview": "您确定要删除此评论吗？"
+  "deleteConfirmReview": "您确定要删除此评论吗？",
+  "searchCity": "按城市搜索",
+  "reset": "重置"
 }

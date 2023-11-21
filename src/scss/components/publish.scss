@@ -22,14 +22,87 @@
   &-filter {
     display: flex;
     flex-direction: column;
-    gap: 0.75em;
+    gap: .5em;
+    &--horizontal {
+      flex-direction: row;
+    }
     &__left {
       display: flex;
       align-items: center;
       gap: 1em;
     }
-  }
-  &-search {
+    &__search {
+      width: 300px;
+      max-width: 300px;
+      .ant-input-group-wrapper {
+        height: 100%!important;
+      }
+      .ant-input-search {
+        height: 100%!important;
+      }
+      .ant-input-wrapper {
+        height: 100%!important;
+        .ant-input-group-addon {
+          height: 100%!important;
+          padding-right: 5px;
+          background-color: var(--light-color);
+          border: none!important;
+          border-end-start-radius: 12px!important;
+          border-start-start-radius: 12px!important;
+        }
+        .ant-input-affix-wrapper {
+          height: 100%!important;
+          border: none!important;
+          padding-left: 5px;
+          border-start-end-radius: 12px!important;
+          border-end-end-radius: 12px!important;
+        }
+        .ant-btn {
+          height: 100%!important;
+          border: none!important;
+          border-start-end-radius: 12px!important;
+          border-end-end-radius: 12px!important;
+        }
+      }
+    }
+    &__select {
+      .ant-select {
+        height: 100%!important;
+        .ant-select-selector {
+          border: none!important;
+          border-radius: 12px!important;
+        }
+      }
+      .ant-input-affix-wrapper {
+        height: 100%!important;
+        border: none!important;
+        border-radius: 12px!important;
+      }
+    }
+    &__rate {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .625em;
+      font-weight: 500;
+      padding: 0.5em 0.625em;
+      background-color: var(--light-color);
+      border-radius: 12px;
+    }
+    &__action {
+      display: flex;
+      align-items: center;
+      gap: .5em;
+      height: 100%;
+      margin-left: auto;
+    }
+    &__submit {
+      height: 100%;
+      .ant-btn {
+        height: 100%!important;
+        border-radius: 12px!important;
+      }
+    }
   }
   &-search {
     display: flex;

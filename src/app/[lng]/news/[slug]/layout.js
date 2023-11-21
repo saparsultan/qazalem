@@ -1,4 +1,5 @@
 import NewsService from "@/services/NewsService";
+import { SITE_URL } from "@/utils/constants";
 
 export async function generateMetadata({ params, searchParams }, parent) {
   const slug = params.slug;
@@ -6,6 +7,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
   const item = await NewsService.getOneOriginCountry(slug, lng);
   const previousImages = (await parent).openGraph?.images || [];
   return {
+    metadataBase: new URL(SITE_URL),
     title: item?.data?.title,
     description: item?.data?.title,
     openGraph: {

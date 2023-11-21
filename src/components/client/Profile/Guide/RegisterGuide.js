@@ -1,18 +1,16 @@
 "use client";
+import { useState } from "react";
 import { Tabs } from "antd";
 import { useSession } from "next-auth/react";
 import { useTranslation } from "@/app/i18n/client";
 import FormGuide from "@/components/client/Profile/Guide/FormGuide";
 import FormGuideVideo from "@/components/client/Profile/Guide/FormGuideVideo";
 import CommentList from "@/components/client/Profile/Guide/CommentList";
-import { useState } from "react";
 
 const RegisterGuide = ({ lng }) => {
   const { data: session } = useSession();
   const { t: tDefault } = useTranslation(lng, "default");
   const [infoGuide, setInfoGuide] = useState(null);
-
-  console.log({ infoGuide });
   const items = [
     {
       key: "1",

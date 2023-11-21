@@ -66,7 +66,7 @@ const ServicesHome = ({ lng }) => {
         <TabPanel>
           <div className="company-list-content">
             <div className="company-list-content__item">
-              <h3 className="title title-h3 company-list-content__title">
+              <h3 className="title title-h3 title-left company-list-content__title">
                 Kazakh Tourism
               </h3>
               <div
@@ -106,7 +106,7 @@ const ServicesHome = ({ lng }) => {
         <TabPanel>
           <div className="company-list-content">
             <div className="company-list-content__item">
-              <h3 className="title title-h3 company-list-content__title">
+              <h3 className="title title-h3 title-left company-list-content__title">
                 Kazakh Invest
               </h3>
               <div
@@ -146,7 +146,7 @@ const ServicesHome = ({ lng }) => {
         <TabPanel>
           <div className="company-list-content">
             <div className="company-list-content__item">
-              <h3 className="title title-h3 company-list-content__title">
+              <h3 className="title title-h3 title-left company-list-content__title">
                 Alem Metaverse
               </h3>
               <div
@@ -186,7 +186,7 @@ const ServicesHome = ({ lng }) => {
         <TabPanel>
           <div className="company-list-content">
             <div className="company-list-content__item">
-              <h3 className="title title-h3 company-list-content__title">
+              <h3 className="title title-h3 title-left company-list-content__title">
                 QazTrade
               </h3>
               <div
@@ -226,7 +226,7 @@ const ServicesHome = ({ lng }) => {
         {/*        <TabPanel>
           <div className="company-list-content">
             <div className="company-list-content__item">
-              <h3 className="title title-h3 company-list-content__title">
+              <h3 className="title title-h3 title-left company-list-content__title">
                 KazakhExport
               </h3>
               <p className="company-list-content__desc">
@@ -262,7 +262,7 @@ const ServicesHome = ({ lng }) => {
         <TabPanel>
           <div className="company-list-content">
             <div className="company-list-content__item">
-              <h3 className="title title-h3 company-list-content__title">
+              <h3 className="title title-h3 title-left company-list-content__title">
                 ВТП Атамекен
               </h3>
               <p className="company-list-content__desc">
@@ -292,7 +292,7 @@ const ServicesHome = ({ lng }) => {
         <TabPanel>
           <div className="company-list-content">
             <div className="company-list-content__item">
-              <h3 className="title title-h3 company-list-content__title">
+              <h3 className="title title-h3 title-left company-list-content__title">
                 Astana Hub
               </h3>
               <div
