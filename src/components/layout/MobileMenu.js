@@ -59,13 +59,18 @@ const MobileMenu = ({ lng, showMenu, setShowMenu }) => {
         </div>
         <ul className="list-reset mobile-menu-content__list mobile-nav">
           <li className="mobile-nav__item">
-            <Link href={`/${lng}/about`} className="mobile-nav__link">
+            <Link
+              href={`/${lng}/about`}
+              className="mobile-nav__link"
+              onClick={() => setShowMenu(!showMenu)}
+            >
               {isClient && t("aboutPortal")}
             </Link>
           </li>
           <li className="mobile-nav__item">
             <Link
               href={`/${lng}/${LINK_URLS.services}`}
+              onClick={() => setShowMenu(!showMenu)}
               className="mobile-nav__link"
             >
               {isClient && t("services")}
@@ -74,6 +79,7 @@ const MobileMenu = ({ lng, showMenu, setShowMenu }) => {
           <li className="mobile-nav__item">
             <Link
               href={`/${lng}/${LINK_URLS.news}`}
+              onClick={() => setShowMenu(!showMenu)}
               className="mobile-nav__link"
             >
               {isClient && t("news")}
@@ -82,6 +88,7 @@ const MobileMenu = ({ lng, showMenu, setShowMenu }) => {
           <li className="mobile-nav__item">
             <Link
               href={`/${lng}/${LINK_URLS.interview}`}
+              onClick={() => setShowMenu(!showMenu)}
               className="mobile-nav__link"
             >
               {isClient && t("interview")}
@@ -90,6 +97,7 @@ const MobileMenu = ({ lng, showMenu, setShowMenu }) => {
           <li className="mobile-nav__item">
             <Link
               href={`/${lng}/${LINK_URLS.faq}`}
+              onClick={() => setShowMenu(!showMenu)}
               className="mobile-nav__link"
             >
               {isClient && t("bloodRelativeSupport")}
@@ -98,6 +106,7 @@ const MobileMenu = ({ lng, showMenu, setShowMenu }) => {
           <li className="mobile-nav__item">
             <Link
               href={`/${lng}/${LINK_URLS.events}`}
+              onClick={() => setShowMenu(!showMenu)}
               className="mobile-nav__link"
             >
               {isClient && t("events")}

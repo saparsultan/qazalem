@@ -18,10 +18,15 @@
     flex-direction: column;
     overflow: hidden;
     &:hover {
-      .blog-item__img {
-        img {
-          transform: translate(-50%,-50%) scale(1.1);
-          transition: transform .6s;
+      .blog-item {
+        &__img {
+          img {
+            transform: translate(-50%,-50%) scale(1.1);
+            transition: transform .6s;
+          }
+        }
+        &__text {
+          color: var(--accent-color);
         }
       }
     }
@@ -86,9 +91,6 @@
       font-size: 1rem;
       line-height: 140%;
       transition: color .1s linear;
-      &:hover {
-        color: var(--accent-color);
-      }
       @include mobile {
         font-size: .875rem;
       }

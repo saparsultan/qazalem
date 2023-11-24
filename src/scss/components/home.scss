@@ -433,7 +433,11 @@
 
     &__title {
       font-size: .938rem;
+      font-weight: 600;
       line-height: 133%;
+      @include mobile {
+        font-size: .875rem;
+      }
     }
 
     &__desc {
@@ -615,6 +619,14 @@
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr;
       grid-gap: 3em;
+      @include tablet {
+        grid-template-columns: 1fr 1fr;
+        gap: 2em;
+      }
+      @include mobile {
+        grid-template-columns: 1fr;
+        gap: 1em;
+      }
       &__item {
         display: flex;
         align-items: center;
@@ -625,10 +637,17 @@
           width: 70px;
           height: 70px;
           margin-right: 1em;
-          //margin-right: 1.25em;
           background-color: #c7e2ff;
           border-radius: 50px;
+          @include mobile {
+            width: 60px;
+            height: 60px;
+          }
           svg {
+            @include mobile {
+              width: 32px;
+              height: 32px;
+            }
             path {
               stroke: var(--accent-color);
             }
@@ -641,6 +660,9 @@
           font-size: 1.25rem;
           font-weight: 600;
           margin-bottom: .625em;
+          @include mobile {
+            font-size: 1rem;
+          }
         }
         &-link {
           display: flex;
@@ -651,6 +673,9 @@
           line-height: 1;
           opacity: .7;
           transition: opacity .15s ease;
+          @include mobile {
+            font-size: .875rem;
+          }
           .anticon {
             font-size: .875rem;
           }

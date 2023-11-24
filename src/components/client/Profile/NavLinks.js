@@ -3,10 +3,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslation } from "@/app/i18n/client";
 import { LINK_URLS } from "@/utils/constants";
-import { useSession } from "next-auth/react";
 
-const NavLinks = ({ lng }) => {
-  const { data: session, status } = useSession();
+const NavLinks = ({ lng, session }) => {
   const { t } = useTranslation(lng, "layout");
   const pathname = usePathname();
   const profileMain = `/${lng}/${LINK_URLS.profile}/${LINK_URLS.main}`;

@@ -2,6 +2,8 @@ import React from "react";
 import { Raleway } from "next/font/google";
 import { dir } from "i18next";
 import { ConfigProvider } from "antd";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import kkKZ from "antd/es/locale/kk_KZ";
 import ruRU from "antd/es/locale/ru_RU";
 import enUS from "antd/es/locale/en_US";
@@ -36,6 +38,7 @@ export async function generateMetadata({ params: { lng } }) {
 }
 
 const RootLayout = async ({ children, params: { lng } }) => {
+  const session = await getServerSession(authOptions);
   let locale;
   switch (lng) {
     case "kk":
@@ -59,7 +62,7 @@ const RootLayout = async ({ children, params: { lng } }) => {
       <body className={inter.className}>
         <NextAuthProvider>
           <TanstackProvider>
-            <Header lng={lng} />
+            <Header lng={lng} session={session} />
             <StyledComponentsRegistry>
               <ConfigProvider theme={theme} locale={locale} key="custom-locale">
                 <main>{children}</main>

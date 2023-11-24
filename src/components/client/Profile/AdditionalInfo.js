@@ -1,6 +1,5 @@
 "use client";
 import { useEffect } from "react";
-import { useSession } from "next-auth/react";
 import { App, Button, Form, Input, Radio, Skeleton } from "antd";
 import {
   useInfiniteQuery,
@@ -10,10 +9,9 @@ import {
 import { useTranslation } from "@/app/i18n/client";
 import UserService from "@/services/UserService";
 
-const AdditionalInfo = ({ lng }) => {
+const AdditionalInfo = ({ lng, session }) => {
   const [form] = Form.useForm();
   const { notification } = App.useApp();
-  const { data: session } = useSession();
   const { t: tForm } = useTranslation(lng, "form");
   const { t: tMessage } = useTranslation(lng, "message");
   const queryClient = useQueryClient();

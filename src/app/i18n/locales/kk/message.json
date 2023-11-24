@@ -9,7 +9,6 @@
   "successSubmitted": "Форма сәтті жіберілді!",
   "errorSubmitted": "Жіберу кезінде қате шықты",
   "registerSuccess": "Тіркеу сәтті өтті",
-
   "successChangePassword": "Құпия сөзіңіз сәтті өзгертілді!",
   "errorCurrentPassword": "Ескі құпия сөзіңіз дұрыс емес!",
   "errorAnotherPassword": "Сіз басқа пайдаланушының құпия сөзін өзгерте алмайсыз!",
@@ -27,5 +26,6 @@
   "successDeleteReview": "Сіздің пікіріңіз сәтті жойылды",
   "errorDeleteReview": "Пікіріңізді жою кезінде қате орын алды",
   "errorAcceptedOnlyReview": "Құрметті пайдаланушы, сізге бір ғана пікір қалдыруға рұқсат бар екенін ескеріңіз.",
-  "contact": "Байланыс"
+  "contact": "Байланыс",
+  "errorResetPassword": "Құпия сөзді өзгерту әрекеті кезінде қате орын алды"
 }

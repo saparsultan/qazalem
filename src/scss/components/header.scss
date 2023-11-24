@@ -17,8 +17,8 @@
     padding-bottom: .875em;
     border-bottom: 2px solid rgba(0, 0, 0, .04);
     @include small-desktop {
-      padding-top: 0.75em;
-      padding-bottom: 0.75em;
+      padding-top: 0.625em;
+      padding-bottom: 0.625em;
     }
 
     &:before {
@@ -102,6 +102,13 @@
     @include small-desktop {
       margin-right: auto;
     }
+    .logo {
+      &__icon {
+        @include mobile {
+          width: 48px;
+        }
+      }
+    }
   }
 
   &-nav {
@@ -135,6 +142,9 @@
     display: flex;
     align-items: center;
     gap: 0.75em;
+    @include mobile {
+      gap: 0.375em;
+    }
   }
 }
 
@@ -221,6 +231,11 @@
   border-radius: 12px;
   cursor: pointer;
   transition: background-color .2s ease-out;
+  @include mobile {
+    width: 2.25rem;
+    height: 2.25rem;
+      font-size: .875rem;
+  }
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.04);
@@ -252,6 +267,10 @@
     line-height: 1.25em;
     transition: color .15s ease-out;
     cursor: pointer;
+    @include mobile {
+      padding: 0.5em;
+      font-size: .875rem;
+    }
 
     &:hover {
       color: var(--primary-color);
@@ -295,10 +314,9 @@
   @include tablet {
     display: flex;
   }
-
   svg {
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
   }
 }
 

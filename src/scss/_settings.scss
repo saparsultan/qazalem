@@ -74,6 +74,12 @@ iframe {
   }
   &--publish {
     margin-top: 92px;
+    @include small-desktop {
+      margin-top: 84px;
+    }
+    @include mobile {
+      margin-top: 68.83px;
+    }
   }
 }
 
@@ -136,6 +142,9 @@ iframe {
   &-small {
     max-width: 390px;
   }
+  &-middle {
+    max-width: 640px;
+  }
   &--banner {
     max-width: 1300px;
   }
@@ -178,6 +187,9 @@ iframe {
   border: 1px solid transparent;
   border-radius: 16px;
   cursor: pointer;
+  @include mobile {
+    border-radius: 12px;
+  }
   &-reg {
     color: inherit;
     //background-color: #ba111d;
@@ -259,12 +271,15 @@ iframe {
     font-weight: 700;
     letter-spacing: 0.03547222222222222em;
     text-align: center;
+    color: var(--base-color);
     margin-bottom: 1.2222222222222223em;
     @include tablet {
       font-size: 2rem;
+      letter-spacing: normal;
     }
     @include mobile {
       font-size: 1.5rem;
+      text-align: left;
     }
   }
   &-h3 {
@@ -382,6 +397,13 @@ iframe {
     color: var(--light-color);
     background-color: #ff4d4d;
     border-color: #ff4d4d!important;
+    transition: opacity .15s ease;
+    @include mobile {
+      padding: 0.495em 0.6378571429em;
+    }
+    &:hover {
+      opacity: .8;
+    }
   }
 }
 
@@ -726,4 +748,24 @@ iframe {
   overflow: hidden;
 }
 
+.ant-select-selection-item {
+  width: 240px!important;
+}
 
+.ant-row {
+  @include mobile {
+    font-size: 14px!important;
+  }
+}
+
+.ant-tabs-tab {
+  @include tablet {
+    font-size: 14px!important;
+    font-weight: 500;
+  }
+}
+:where(.css-dev-only-do-not-override-1gjejum).ant-tabs .ant-tabs-tab+.ant-tabs-tab {
+  @include tablet {
+    margin-left: 20px;
+  }
+}

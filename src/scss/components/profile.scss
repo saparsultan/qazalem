@@ -3,15 +3,30 @@
   grid-template-columns: 240px 1fr;
   grid-gap: 2em;
   padding: 4em 0;
+  @include tablet {
+    grid-template-columns: 1fr;
+    grid-gap: 1em;
+    padding: 1em 0;
+  }
   &__container {
     margin-top: 91px;
     padding-top: 0;
     background-color: rgba(0, 0, 0, 0.04);
+    @include small-desktop {
+      margin-top: 84px;
+    }
+    @include mobile {
+      margin-top: 68.83px;
+    }
   }
   &__title {
     text-transform: none;
     margin-top: 0.3333333333333333em;
     margin-bottom: 0.8333333333333334em;
+    @include tablet {
+      font-weight: 600!important;
+      margin-bottom: 0.625em;
+    }
   }
   &-sidebar {
     border-radius: 12px;
@@ -19,7 +34,9 @@
     width: 100%;
     overflow: hidden;
     background-color: var(--light-color);
-
+    @include tablet {
+      max-width: 100%;
+    }
     &-header {
       &__preview {
         position: relative;
@@ -29,6 +46,16 @@
         justify-content: center;
         text-align: center;
         padding: 1.875em 1.25em 0.875em;
+        @include tablet {
+          flex-direction: row;
+          justify-content: flex-start;
+          gap: 0.75em;
+          padding: 1.25em;
+        }
+        @include mobile {
+          gap: .5em;
+          padding: 0.938em 3em 0.938em 0.938em;
+        }
       }
       &__logout {
         position: absolute;
@@ -42,6 +69,14 @@
         &:hover {
           opacity: .7;
         }
+        svg {
+          @include mobile {
+            top: 1em;
+            right: 1em;
+            width: 20px;
+            height: 20px;
+          }
+        }
       }
 
       &__avatar {
@@ -52,7 +87,10 @@
         height: 150px;
         overflow: hidden;
         border-radius: 50%;
-
+        @include tablet {
+          width: 48px;
+          height: 48px;
+        }
         img {
           width: 100%;
           height: 100%;
@@ -60,22 +98,46 @@
       }
 
       &__fio {
+        flex: 1;
         font-weight: 600;
         font-size: 1.25rem;
         line-height: 1em;
         text-align: center;
         margin: 0.8em 0;
+        @include tablet {
+          font-size: 1rem;
+          text-align: left;
+        }
+        @include mobile {
+          margin: 0;
+        }
       }
     }
 
     &-list {
       padding-bottom: 1.25em;
+      @include tablet {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding-bottom: 0;
+      }
+      @include small-mobile {
+        grid-template-columns: 1fr;
+      }
 
       &__item {
         display: flex;
         align-items: center;
         justify-content: center;
-        border-top: 1px solid rgba(0, 0, 0, 0.08);;
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+        &:nth-child(odd) {
+          @include tablet {
+            border-right: 1px solid rgba(0, 0, 0, 0.08);
+            @include small-mobile {
+              border-right: none;
+            }
+          }
+        }
       }
 
       &__link {
@@ -86,21 +148,37 @@
         width: 100%;
         height: 60px;
         padding: 0.75em 1.25em;
+        @include mobile {
+          gap: .5714285714285714em;
+          height: 54px;
+          padding-left: 1em;
+          padding-right: 1em;
+        }
+        @include small-mobile {
+          height: 42px;
+        }
         span {
           flex: 1;
-          font-size: 0.938rem;
+          font-size: .938rem;
           font-weight: 500;
           line-height: 1.2;
           color: rgba(0, 0, 0, .8);
+          @include mobile {
+            font-size: .875rem;
+          }
         }
 
         svg {
           width: 16px;
           height: 16px;
-
+          @include mobile {
+            width: 14px;
+            height: 14px;
+          }
           path {
             fill: rgba(0, 0, 0, .4);
           }
+
         }
         &:hover {
           span {
@@ -130,25 +208,43 @@
     padding: 1em;
     background-color: var(--light-color);
     border-radius: 12px;
+    @include mobile {
+      padding: .938em;
+    }
     &-info {
       display: flex;
       align-items: center;
+      flex-wrap: wrap;
       padding: 1.25em;
       border-radius: 12px;
       background-color: rgba(0, 0, 0, 0.04);
+      @include mobile {
+        padding: 1em;
+      }
       &__star {
         font-size: 1.125rem;
         font-weight: 600;
         line-height: 1.2;
         margin-right: .5rem;
+        @include mobile {
+          font-size: 1rem;
+        }
       }
       &__rate {
         display: flex;
         align-items: center;
+        @include mobile {
+          font-size: 1rem;
+        }
       }
       &__count {
         color: #96a8b8;
         margin-left: 1em;
+        @include mobile {
+          width: 100%;
+          margin-top: 5px;
+          margin-left: 0;
+        }
       }
     }
   }
@@ -157,8 +253,28 @@
     display: flex;
     align-items: center;
     gap: 1.5em;
+    @include tablet {
+      gap: 1.25em;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    &::-webkit-scrollbar {
+      display: none;
+    }
     &__container {
+      position: relative;
       background-color: var(--light-color);
+      &::after {
+        position: absolute;
+        content: '';
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        height: 100%;
+        width: 30px;
+        background: linear-gradient(270deg, #FFF 0%, rgba(255, 255, 255, 0.80) 100%);
+      }
     }
     &__item {
       font-size: 0.938rem;
@@ -170,14 +286,25 @@
       padding: 1.2em 0;
       font-size: inherit;
       font-weight: 600;
+      white-space: nowrap;
       color: #96a8b8;
       border-bottom: 2px solid transparent;
+      @include tablet {
+        padding: .875em 0;
+        font-size: .875rem;
+      }
       &:hover {
         color: var(--primary-color);
       }
       &.active {
         color: var(--primary-color);
         border-color: var(--primary-color);
+      }
+      svg {
+        @include tablet {
+          width: 20px;
+          height: 20px;
+        }
       }
     }
   }
@@ -189,6 +316,9 @@
     padding: 2em;
     border-radius: 12px;
     background-color: var(--light-color);
+    @include mobile {
+      padding: .938em;
+    }
 
     &__title {
       font-size: 1.5rem;
@@ -219,9 +349,20 @@
       }
     }
 
-    .form-item {
-      flex: 1;
-      width: 48%;
+    .form {
+      &-row {
+        @include mobile {
+          flex-direction: column;
+          gap: 0;
+        }
+      }
+      &-item {
+        flex: 1;
+        width: 48%;
+        @include mobile {
+          width: 100%;
+        }
+      }
     }
   }
 
@@ -270,6 +411,10 @@
     gap: 1em;
     background-color: var(--light-color);
     border-radius: 12px;
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: .938em;
+    }
   }
   &-item {
     position: relative;
@@ -288,12 +433,18 @@
       border: 1px solid var(--primary-color);
       cursor: pointer;
       transition: opacity .2s ease;
+      @include mobile {
+        padding: 1.5em;
+      }
       &__btn {
         display: flex;
         align-items: center;
         justify-content: center;
         .anticon {
           font-size: 1.5rem;
+          @include mobile {
+            font-size: 1.25rem;
+          }
         }
       }
       &__text {
@@ -301,6 +452,9 @@
         font-weight: 500;
         color: var(--primary-color);
         margin-left: .375em;
+        @include mobile {
+          font-size: 1rem;
+        }
       }
       &:hover {
         opacity: .7;
@@ -312,6 +466,9 @@
       justify-content: space-between;
       height: 100%;
       padding: 1em;
+      @include mobile {
+        padding: .5em;
+      }
       &__desc {
         font-size: 1rem;
         line-height: 147%;
@@ -356,6 +513,9 @@
       .ant-tabs-nav {
         height: 40px!important;
         padding: 0!important;
+        @include mobile {
+          height: 30px!important;
+        }
       }
       .ant-tabs-tab {
         font-weight: 500!important;
@@ -363,6 +523,24 @@
       }
       .ant-tabs-tabpane {
         margin-top: 1em;
+        @include mobile {
+          font-size: .875rem;
+        }
+      }
+    }
+  }
+}
+
+.ant {
+  &-form {
+    &__drawer {
+      .form {
+        &-row {
+          @include mobile {
+            gap: 0;
+            flex-direction: column;
+          }
+        }
       }
     }
   }

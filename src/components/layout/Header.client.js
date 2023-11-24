@@ -4,19 +4,18 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { signOut, useSession } from "next-auth/react";
+import { signOut } from "next-auth/react";
 import { Trans } from "react-i18next/TransWithoutContext";
 import cx from "classnames";
 import { useTranslation } from "@/app/i18n/client";
 import { languagesClient } from "@/app/i18n/settings";
 import { LINK_URLS } from "@/utils/constants";
+import MobileMenu from "@/components/layout/MobileMenu";
 import logoIcon from "@/assets/img/logo.png";
 import logoPrimaryIcon from "@/assets/img/logo-primary.png";
-import MobileMenu from "@/components/layout/MobileMenu";
 
-const HeaderClient = ({ children, lng }) => {
+const HeaderClient = ({ children, lng, session }) => {
   const langClient = lng.toUpperCase();
-  const { data: session, status } = useSession();
   const { t } = useTranslation(lng, "layout");
   const blockRef = useRef(null);
   const langRef = useRef(null);
@@ -84,7 +83,7 @@ const HeaderClient = ({ children, lng }) => {
 
   const handlePushLogin = async () => {
     setShowProfile(!showProfile);
-    if (status === "authenticated" && session?.user) {
+    if (session?.user) {
       await router.push(`/${lng}/${LINK_URLS.profile}/${LINK_URLS.main}`);
     } else {
       router.push(`/${lng}/${LINK_URLS.login}`);
@@ -93,9 +92,10 @@ const HeaderClient = ({ children, lng }) => {
 
   const handlePushAuth = async () => {
     setShowProfile(!showProfile);
-    if (status === "authenticated" && session?.user) {
+    if (session?.user) {
       await signOut({ redirect: false });
       await router.push(`/${lng}`);
+      router.refresh();
     } else {
       router.push(`/${lng}/${LINK_URLS.signUp}`);
     }
@@ -115,15 +115,32 @@ const HeaderClient = ({ children, lng }) => {
             <div className="header">
               <div className="burger" onClick={() => setShowMenu(!showMenu)}>
                 <svg
-                  width="25"
-                  height="25"
-                  viewBox="0 0 25 25"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M4.3916 18.4912C4.10827 18.4912 3.87077 18.3954 3.6791 18.2037C3.48743 18.012 3.3916 17.7745 3.3916 17.4912C3.3916 17.2079 3.48743 16.9704 3.6791 16.7787C3.87077 16.587 4.10827 16.4912 4.3916 16.4912H20.3916C20.6749 16.4912 20.9124 16.587 21.1041 16.7787C21.2958 16.9704 21.3916 17.2079 21.3916 17.4912C21.3916 17.7745 21.2958 18.012 21.1041 18.2037C20.9124 18.3954 20.6749 18.4912 20.3916 18.4912H4.3916ZM4.3916 13.4912C4.10827 13.4912 3.87077 13.3954 3.6791 13.2037C3.48743 13.012 3.3916 12.7745 3.3916 12.4912C3.3916 12.2079 3.48743 11.9704 3.6791 11.7787C3.87077 11.587 4.10827 11.4912 4.3916 11.4912H20.3916C20.6749 11.4912 20.9124 11.587 21.1041 11.7787C21.2958 11.9704 21.3916 12.2079 21.3916 12.4912C21.3916 12.7745 21.2958 13.012 21.1041 13.2037C20.9124 13.3954 20.6749 13.4912 20.3916 13.4912H4.3916ZM4.3916 8.49121C4.10827 8.49121 3.87077 8.39538 3.6791 8.20371C3.48743 8.01204 3.3916 7.77454 3.3916 7.49121C3.3916 7.20788 3.48743 6.97038 3.6791 6.77871C3.87077 6.58704 4.10827 6.49121 4.3916 6.49121H20.3916C20.6749 6.49121 20.9124 6.58704 21.1041 6.77871C21.2958 6.97038 21.3916 7.20788 21.3916 7.49121C21.3916 7.77454 21.2958 8.01204 21.1041 8.20371C20.9124 8.39538 20.6749 8.49121 20.3916 8.49121H4.3916Z"
-                    fill="currentColor"
+                    d="M2 16H30"
+                    stroke="#51526C"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M2 28H30"
+                    stroke="#51526C"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M2 4H30"
+                    stroke="#51526C"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
               </div>
@@ -181,7 +198,7 @@ const HeaderClient = ({ children, lng }) => {
                     className="btn-reset auth-block__login"
                     onClick={() => setShowProfile(!showProfile)}
                   >
-                    {status === "authenticated" && session?.user ? (
+                    {session?.user ? (
                       <span>
                         {session?.user?.firstname?.charAt(0).toUpperCase()}
                       </span>
@@ -203,14 +220,14 @@ const HeaderClient = ({ children, lng }) => {
                   {showProfile && (
                     <div
                       className={cx("auth-block__popup", {
-                        login: status === "authenticated" && session?.user,
+                        login: session?.user,
                       })}
                     >
                       <div
                         onClick={handlePushLogin}
                         className="auth-block__link auth-block__link--first"
                       >
-                        {status === "authenticated" && (
+                        {session?.user && (
                           <svg
                             width="23"
                             height="23"
@@ -224,17 +241,13 @@ const HeaderClient = ({ children, lng }) => {
                             />
                           </svg>
                         )}
-                        <span>
-                          {status === "authenticated" && session?.user
-                            ? t("profile")
-                            : t("login")}
-                        </span>
+                        <span>{session?.user ? t("profile") : t("login")}</span>
                       </div>
                       <div
                         onClick={handlePushAuth}
                         className="auth-block__link auth-block__link--second"
                       >
-                        {status === "authenticated" && session?.user && (
+                        {session?.user && (
                           <svg
                             width="24"
                             height="24"
@@ -269,9 +282,7 @@ const HeaderClient = ({ children, lng }) => {
                           </svg>
                         )}
                         <span>
-                          {status === "authenticated" && session?.user
-                            ? t("logout")
-                            : t("registration")}
+                          {session?.user ? t("logout") : t("registration")}
                         </span>
                       </div>
                     </div>

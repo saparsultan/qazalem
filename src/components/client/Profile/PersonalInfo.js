@@ -1,6 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { useSession } from "next-auth/react";
+import { useEffect, useState } from "react";
 import { App, Button, DatePicker, Form, Input, Select, Skeleton } from "antd";
 import {
   useInfiniteQuery,
@@ -18,6 +17,7 @@ import weekYear from "dayjs/plugin/weekYear";
 import { useTranslation } from "@/app/i18n/client";
 import AuthService from "@/services/AuthService";
 import UserService from "@/services/UserService";
+import LinesEllipsis from "react-lines-ellipsis";
 
 dayjs.extend(customParseFormat);
 dayjs.extend(advancedFormat);
@@ -25,17 +25,16 @@ dayjs.extend(weekday);
 dayjs.extend(localeData);
 dayjs.extend(weekOfYear);
 dayjs.extend(weekYear);
-const PersonalInfo = ({ lng }) => {
+const PersonalInfo = ({ lng, session }) => {
   const [form] = Form.useForm();
   const { notification } = App.useApp();
-  const { data: session } = useSession();
+  const queryClient = useQueryClient();
   const { t: tForm } = useTranslation(lng, "form");
   const { t: tMessage } = useTranslation(lng, "message");
-  const queryClient = useQueryClient();
   const [date, setDate] = useState("");
 
   const configs = useQuery({
-    queryKey: ["configRegister"],
+    queryKey: ["configProfileRegister"],
     queryFn: async () => {
       const { data } = await AuthService.config(lng);
       return data;
@@ -136,6 +135,8 @@ const PersonalInfo = ({ lng }) => {
                 <Form.Item name="country" label={tForm("labelCountry")}>
                   <Select
                     placeholder={tForm("placeholderSelectCountry")}
+                    popupMatchSelectWidth={false}
+                    placement="topLeft"
                     allowClear
                     options={
                       configs?.data?.country.length &&
@@ -160,9 +161,8 @@ const PersonalInfo = ({ lng }) => {
                 >
                   <Select
                     placeholder={tForm("placeholderSelectCitizenship")}
-                    style={{
-                      width: "100%",
-                    }}
+                    popupMatchSelectWidth={false}
+                    placement="topLeft"
                     allowClear
                     options={
                       configs?.data?.citizenship.length &&
@@ -182,9 +182,8 @@ const PersonalInfo = ({ lng }) => {
                 >
                   <Select
                     placeholder={tForm("placeholderSelectArea")}
-                    style={{
-                      width: "100%",
-                    }}
+                    popupMatchSelectWidth={false}
+                    placement="topLeft"
                     allowClear
                     options={
                       configs?.data?.field_of_activity.length &&

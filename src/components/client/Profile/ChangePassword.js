@@ -1,14 +1,12 @@
 "use client";
-import { useSession } from "next-auth/react";
 import { App, Button, Form, Input, Skeleton } from "antd";
 import { useMutation } from "@tanstack/react-query";
 import { useTranslation } from "@/app/i18n/client";
 import UserService from "@/services/UserService";
 
-const ChangePassword = ({ lng }) => {
+const ChangePassword = ({ lng, session }) => {
   const { notification } = App.useApp();
   const [form] = Form.useForm();
-  const { data: session, status } = useSession();
   const { t: tForm } = useTranslation(lng, "form");
   const { t: tMessage } = useTranslation(lng, "message");
 
@@ -77,7 +75,7 @@ const ChangePassword = ({ lng }) => {
         autoComplete="off"
         onFinish={onSubmitForm}
       >
-        {!session?.user && status === "unauthenticated" ? (
+        {!session?.user ? (
           <Skeleton
             paragraph={{
               rows: 8,

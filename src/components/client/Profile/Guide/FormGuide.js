@@ -1,14 +1,12 @@
 import { useEffect } from "react";
-import { useSession } from "next-auth/react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Alert, App, Button, Form, Input, Skeleton } from "antd";
 import { useTranslation } from "@/app/i18n/client";
 import UserService from "@/services/UserService";
 
-const FormGuide = ({ lng, setInfoGuide }) => {
+const FormGuide = ({ lng, setInfoGuide, session }) => {
   const { message, notification } = App.useApp();
   const [form] = Form.useForm();
-  const { data: session } = useSession();
   const queryClient = useQueryClient();
   const { t: tForm } = useTranslation(lng, "form");
   const { t: tMessage } = useTranslation(lng, "message");

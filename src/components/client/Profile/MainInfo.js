@@ -1,23 +1,17 @@
 "use client";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { useSession } from "next-auth/react";
-import {
-  useInfiniteQuery,
-  useMutation,
-  useQueryClient,
-} from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { App, Button, Form, Input, Select, Skeleton } from "antd";
 import ImageUploading from "react-images-uploading";
 import { useTranslation } from "@/app/i18n/client";
 import UserService from "@/services/UserService";
-import defaultAvatar from "@/assets/img/default.png";
 import beforeUpload from "@/utils/beforeUpload";
+import defaultAvatar from "@/assets/img/default.png";
 
-const MainInfo = ({ lng }) => {
+const MainInfo = ({ lng, session }) => {
   const [form] = Form.useForm();
   const { message, notification } = App.useApp();
-  const { data: session, status } = useSession();
   const { t: tForm } = useTranslation(lng, "form");
   const { t: tMessage } = useTranslation(lng, "message");
   const queryClient = useQueryClient();
@@ -32,7 +26,7 @@ const MainInfo = ({ lng }) => {
       email: session?.user && session?.user?.email,
       gender: session?.user && session?.user?.gender,
     });
-  }, [session]);
+  }, [form, session]);
 
   const { mutate: onSubmitForm } = useMutation({
     mutationFn: async (value) => {
@@ -207,9 +201,8 @@ const MainInfo = ({ lng }) => {
                 >
                   <Select
                     placeholder={tForm("placeholderGender")}
-                    style={{
-                      width: "100%",
-                    }}
+                    popupMatchSelectWidth={false}
+                    placement="topLeft"
                     allowClear
                     options={[
                       {

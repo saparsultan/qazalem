@@ -1,5 +1,6 @@
 const theme = {
   token: {
+    fontFamily: "Raleway, sans-serif",
     fontSize: 16,
     colorPrimary: "#e3871c",
     fontVariantNumeric: "lining-nums proportional-nums!important",
@@ -13,7 +14,6 @@ const theme = {
       // fontSizeSM: 20,
       // colorPrimary: "#eb2f96",
       // height: "auto",
-      fontVariantNumeric: "lining-nums proportional-nums",
       algorithm: true, // Enable algorithm
     },
     Form: {

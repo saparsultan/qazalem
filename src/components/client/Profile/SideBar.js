@@ -2,17 +2,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { signOut, useSession } from "next-auth/react";
+import { signOut } from "next-auth/react";
 import { LINK_URLS } from "@/utils/constants";
 import defaultAvatar from "@/assets/img/default.png";
 import { useTranslation } from "@/app/i18n/client";
 import { Skeleton } from "antd";
 
-const SideBar = ({ lng }) => {
-  const { data: session, status } = useSession();
-  const { t: tDefault } = useTranslation(lng, "default");
+const SideBar = ({ lng, session }) => {
   const pathname = usePathname();
   const router = useRouter();
+  const { t: tDefault } = useTranslation(lng, "default");
   const profileMain = `/${lng}/${LINK_URLS.profile}/${LINK_URLS.main}`;
   const profilePersonal = `/${lng}/${LINK_URLS.profile}/${LINK_URLS.personal}`;
   const profileSocial = `/${lng}/${LINK_URLS.profile}/${LINK_URLS.social}`;
@@ -25,9 +24,10 @@ const SideBar = ({ lng }) => {
   const handleLogout = async () => {
     await signOut({ redirect: false });
     await router.push(`/${lng}`);
+    router.refresh();
   };
 
-  return !session?.user && status === "unauthenticated" ? (
+  return !session?.user ? (
     <div
       style={{
         padding: "1.25em",

@@ -146,4 +146,13 @@ export default class AuthService {
       },
     );
   }
+  static async resetPassword(email) {
+    return $api.post(
+      `reset/password/send`,
+      { email: email },
+      {
+        headers: { "Content-Type": "application/json" },
+      },
+    );
+  }
 }

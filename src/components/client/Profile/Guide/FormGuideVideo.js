@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useState } from "react";
 import {
   App,
   Button,
@@ -9,17 +10,14 @@ import {
   Select,
   Space,
 } from "antd";
-import { useSession } from "next-auth/react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "@/app/i18n/client";
 import UserService from "@/services/UserService";
-import React, { useEffect, useState } from "react";
 import GuideVideoList from "@/components/client/Profile/Guide/GuideVideoList";
 
-const FormGuideVideo = ({ lng }) => {
+const FormGuideVideo = ({ lng, session }) => {
   const { message } = App.useApp();
   const [form] = Form.useForm();
-  const { data: session } = useSession();
   const queryClient = useQueryClient();
   const { t: tForm } = useTranslation(lng, "form");
   const { t: tMessage } = useTranslation(lng, "message");
@@ -206,6 +204,7 @@ const FormGuideVideo = ({ lng }) => {
       />
       <Drawer
         title={tDefault("addSuggestion")}
+        className="ant-form__drawer"
         width={720}
         onClose={onClose}
         open={open}
@@ -344,6 +343,7 @@ const FormGuideVideo = ({ lng }) => {
 
       <Drawer
         title={tDefault("changeSuggestion")}
+        className="ant-form__drawer"
         width={720}
         onClose={onCloseEdit}
         open={openVideoEdit}

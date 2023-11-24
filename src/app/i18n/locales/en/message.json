@@ -26,5 +26,6 @@
   "successDeleteReview": "Your review has been deleted successfully",
   "errorDeleteReview": "There was an error deleting your review",
   "errorAcceptedOnlyReview": "Dear user, please note that you are only allowed to leave one review.",
-  "contact": "Contact"
+  "contact": "Contact",
+  "errorResetPassword": "An error occurred while trying to change the password"
 }
