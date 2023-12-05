@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Button, Form, Input, Select } from "antd";
 import ImageUploading from "react-images-uploading";
 import { useTranslation } from "@/app/i18n/client";
-import UploadImageIcon from "@/components/UploadImageIcon";
+import UploadImageIcon from "@/components/server/UploadImageIcon";
 
 const StepFirst = ({
   lng,
@@ -73,12 +73,12 @@ const StepFirst = ({
                     onClick={onImageUpload}
                     {...dragProps}
                   >
-                    {imageList?.length ? (
+                    {avatar && imageList?.length ? (
                       <div className="upload__image-item">
                         <Image
                           className="upload__image-src"
-                          src={avatar[0]["data_url"]}
-                          alt=""
+                          src={avatar[0] && avatar[0]["data_url"]}
+                          alt="Local Avatar"
                           width={100}
                           height={100}
                         />

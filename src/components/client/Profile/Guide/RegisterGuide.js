@@ -12,7 +12,7 @@ const RegisterGuide = ({ lng, session }) => {
   const items = [
     {
       key: "1",
-      label: session?.user?.guide_id
+      label: session?.user?.volunteer_id
         ? tDefault("description")
         : tDefault("formRegistration"),
       children: (

@@ -45,7 +45,10 @@ const OurProjects = ({ lng }) => {
             <div className="our-projects-options__item-name">
               {tHome("volunteers")}
             </div>
-            <Link href="/" className="our-projects-options__item-link">
+            <Link
+              href={`/${lng}/${LINK_URLS.volunteer}`}
+              className="our-projects-options__item-link"
+            >
               <span>{tHome("learnMore")}</span>
               <RightOutlined />
             </Link>

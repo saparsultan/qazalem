@@ -1,64 +1,70 @@
-"use client";
-import React from "react";
-import {
-  useParams,
-  usePathname,
-  useSearchParams,
-  useRouter,
-} from "next/navigation";
+import { useEffect, useState } from "react";
 import cx from "classnames";
 
-export default function AboutCountryAside(data) {
-  const pathname = usePathname();
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const params = useParams();
-  const searchQuery = searchParams.get("paragraph");
-  const onSubmitNav = (id, link) => {
-    router.push(`${pathname}?paragraph=${id}#${link}`);
+export default function AboutCountryAside({ data }) {
+  const [asideData, setAsideData] = useState([]);
+  const [activeId, setActiveId] = useState("");
+  const findElements = () => {
+    const elements = document.querySelectorAll('[id^="mcetoc"]');
+    const elementsArray = Array.from(elements);
+    setAsideData(elementsArray);
   };
 
-  const dataArray = [
-    {
-      id: 0,
-      link: "",
-      title: "Сипаттама",
-    },
-    {
-      id: 1,
-      link: "mcetoc_1gre0ig6n2v",
-      title: "Орналасуы",
-    },
-    {
-      id: 2,
-      link: "mcetoc_1gre0ig6n30",
-      title: "Аумағы",
-    },
-    {
-      id: 3,
-      link: "mcetoc_1gre0ig6n31",
-      title: "Шекаралары",
-    },
-    {
-      id: 4,
-      link: "mcetoc_1gre0ig6n33",
-      title: "Климат",
-    },
-  ];
+  const handleScroll = () => {
+    let foundActive = false;
+    asideData.forEach((item) => {
+      if (foundActive) return;
+      const element = document.getElementById(`${item.id}`);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        const isVisible =
+          rect.top + window.scrollY < window.scrollY + window.innerHeight / 2 &&
+          rect.bottom + window.scrollY > window.scrollY;
+        if (isVisible) {
+          setActiveId(item.id);
+          foundActive = true;
+        }
+      }
+    });
+    if (!foundActive) {
+      setActiveId(null);
+    }
+  };
+  const handleClick = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+    setActiveId(id);
+  };
+
+  useEffect(() => {
+    findElements();
+  }, [data]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [data, asideData]);
 
   return (
     <aside className="about-country-aside">
       <ul className="list-reset about-country-list">
-        {dataArray &&
-          dataArray.map(({ id, link, title }) => {
+        {asideData &&
+          asideData.map((item) => {
             return (
               <li
-                key={id}
+                key={item?.id}
                 className={cx("about-country-list__item", {
-                  active: id === +searchQuery,
+                  active: activeId === item.id,
                 })}
               >
-                <div onClick={() => onSubmitNav(id, link)}>{title}</div>
+                <div onClick={() => handleClick(item?.id)}>
+                  {item?.innerText}
+                </div>
               </li>
             );
           })}

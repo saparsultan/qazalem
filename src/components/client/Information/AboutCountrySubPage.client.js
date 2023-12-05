@@ -18,7 +18,6 @@ const AboutCountryPageSubClient = ({ lng }) => {
       return data;
     },
   });
-  console.log("DATAAAAA", data);
   return (
     <>
       <div className="about-country-page__head">
@@ -56,7 +55,7 @@ const AboutCountryPageSubClient = ({ lng }) => {
             />
           </div>
         </div>
-        <AboutCountryAside />
+        <AboutCountryAside data={data} />
       </div>
     </>
   );

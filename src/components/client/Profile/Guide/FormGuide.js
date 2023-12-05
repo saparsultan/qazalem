@@ -28,13 +28,15 @@ const FormGuide = ({ lng, setInfoGuide, session }) => {
   });
 
   useEffect(() => {
-    form.setFieldsValue({
-      descriptionFilledKz: data?.description_kk,
-      descriptionFilledRu: data?.description_ru,
-      descriptionFilledEn: data?.description_en,
-      descriptionFilledCn: data?.description_cn,
-    });
-  }, [isLoading, isSuccess]);
+    if (data) {
+      form.setFieldsValue({
+        descriptionFilledKz: data?.description_kk,
+        descriptionFilledRu: data?.description_ru,
+        descriptionFilledEn: data?.description_en,
+        descriptionFilledCn: data?.description_cn,
+      });
+    }
+  }, [data, form]);
 
   const { mutate: onSubmitForm } = useMutation({
     mutationFn: async (values) => {

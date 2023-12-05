@@ -48,18 +48,18 @@ const FormGuideVideo = ({ lng, session }) => {
     },
   });
 
-  console.log({ dataTypeEx });
-
   useEffect(() => {
-    form.setFieldsValue({
-      urlEdit: editVideoData?.url,
-      typeExEdit: editVideoData?.type_ex?.id,
-      priceEdit: editVideoData?.price,
-      descriptionVideoKzEdit: editVideoData?.description_kk,
-      descriptionVideoRuEdit: editVideoData?.description_ru,
-      descriptionVideoEnEdit: editVideoData?.description_en,
-      descriptionVideoCnEdit: editVideoData?.description_cn,
-    });
+    if (editVideoData) {
+      form.setFieldsValue({
+        urlEdit: editVideoData?.url,
+        typeExEdit: editVideoData?.type_ex?.id,
+        priceEdit: editVideoData?.price,
+        descriptionVideoKzEdit: editVideoData?.description_kk,
+        descriptionVideoRuEdit: editVideoData?.description_ru,
+        descriptionVideoEnEdit: editVideoData?.description_en,
+        descriptionVideoCnEdit: editVideoData?.description_cn,
+      });
+    }
   }, [editVideoData, form]);
 
   const { mutate: onSubmitForm } = useMutation({
@@ -189,8 +189,6 @@ const FormGuideVideo = ({ lng, session }) => {
   const onCloseEdit = () => {
     setOpenVideoEdit(false);
   };
-
-  console.log("data data data", data);
 
   return (
     <div className="profile-form">

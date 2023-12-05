@@ -1,23 +1,19 @@
-import { dehydrate } from "@tanstack/react-query";
-import getQueryClient from "@/utils/getQueryClient";
-import NewsService from "@/services/NewsService";
-import { ReactQueryHydrate } from "@/components/client/ReactQueryHydrate/ReactQueryHydrate";
+import { useTranslation } from "@/app/i18n";
 import InterviewClient from "@/components/client/Blogs/Interview.client";
 
-const Interview = async ({ params: { lng } }) => {
-  const queryClient = getQueryClient();
-  await queryClient.prefetchQuery(["blogInterview"], async () => {
-    const { data } = await NewsService.getInterview({
-      lang: lng,
-    });
-    return data;
-  });
-  const dehydratedState = dehydrate(queryClient);
+export default async function Interview({ params: { lng } }) {
+  const { t } = await useTranslation(lng, "default");
   return (
-    <ReactQueryHydrate state={dehydratedState}>
-      <InterviewClient lng={lng} />
-    </ReactQueryHydrate>
+    <section className="section section--publish news-world__container">
+      <div className="container">
+        <div className="news-world">
+          <h2 className="title title-left text-low title-h2 publish__title">
+            {t("interview")}
+          </h2>
+          <p className="publish__desc">{t("interviewDesc")}</p>
+          <InterviewClient lng={lng} />
+        </div>
+      </div>
+    </section>
   );
-};
-
-export default Interview;
+}

@@ -9,7 +9,9 @@ const NavLinks = ({ lng, session }) => {
   const pathname = usePathname();
   const profileMain = `/${lng}/${LINK_URLS.profile}/${LINK_URLS.main}`;
   const registerGuide = `/${lng}/${LINK_URLS.profile}/${LINK_URLS.registerGuide}`;
+  const registerVolunteer = `/${lng}/${LINK_URLS.profile}/${LINK_URLS.registerVolunteer}`;
   const guide = `/${lng}/${LINK_URLS.profile}/${LINK_URLS.guide}`;
+  const volunteer = `/${lng}/${LINK_URLS.profile}/${LINK_URLS.volunteer}`;
   const defaultLink = "profile-menu__link";
   const activeLink = "profile-menu__link active";
 
@@ -21,7 +23,9 @@ const NavLinks = ({ lng, session }) => {
           className={
             pathname.includes(`${LINK_URLS.profile}`) &&
             !pathname.includes(`${LINK_URLS.registerGuide}`) &&
-            !pathname.includes(`${LINK_URLS.guide}`)
+            !pathname.includes(`${LINK_URLS.guide}`) &&
+            !pathname.includes(`${LINK_URLS.registerVolunteer}`) &&
+            !pathname.includes(`${LINK_URLS.volunteer}`)
               ? activeLink
               : defaultLink
           }
@@ -69,7 +73,15 @@ const NavLinks = ({ lng, session }) => {
         </Link>
       </li>
       <li className="profile-menu__item">
-        <Link href="/" className="profile-menu__link">
+        <Link
+          href={session?.user?.volunteer_id ? volunteer : registerVolunteer}
+          className={
+            pathname.includes(`${LINK_URLS.registerVolunteer}`) ||
+            pathname.includes(`${LINK_URLS.volunteer}`)
+              ? activeLink
+              : defaultLink
+          }
+        >
           <svg
             width="24"
             height="24"
@@ -82,7 +94,11 @@ const NavLinks = ({ lng, session }) => {
               fill="currentColor"
             />
           </svg>
-          <span className="profile-menu__text">{t("registerVolunteer")}</span>
+          <span className="profile-menu__text">
+            {session?.user?.volunteer_id
+              ? t("infoVolunteer")
+              : t("registerVolunteer")}
+          </span>
         </Link>
       </li>
       <li className="profile-menu__item">

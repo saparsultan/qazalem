@@ -1,4 +1,4 @@
-const UploadImageIcon = ({ text }) => {
+export default function UploadImageIcon({ text }) {
   return (
     <div className="upload-image__icon">
       <svg
@@ -16,6 +16,4 @@ const UploadImageIcon = ({ text }) => {
       <span>{text}</span>
     </div>
   );
-};
-
-export default UploadImageIcon;
+}

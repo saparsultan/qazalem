@@ -41,5 +41,17 @@
     "ratings": "评级",
     "share": "分享",
     "subscribe": "订阅",
-    "listGuide": "指南列表"
+    "listGuide": "指南列表",
+    "gallery": "画廊",
+    "addImage": "添加图像",
+    "toAddGallery": "要添加画廊，请注册为志愿者。",
+    "changeGallery": "更改图像",
+    "listVolunteer": "志愿者名单",
+    "skills": "技能",
+    "changeEducationName": "改变教育机构",
+    "addEducationName": "添加教育机构",
+    "educationName": "教育机构",
+    "events": "活动",
+    "addEvent": "添加事件",
+    "changeEvent": "变更事件"
 }

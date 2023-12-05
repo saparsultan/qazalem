@@ -91,6 +91,22 @@ export default class InformationService {
       },
     });
   }
+  static getVolunteerList({
+    lang,
+    search,
+    city,
+    education,
+    skills,
+    page,
+    page_size,
+  }) {
+    return $api.get(
+      `volunteer/preview?lang=${lang}&search=${search}&city=${city}&education=${education}&skills=${skills}&page=${page}&page_size=${page_size}`,
+    );
+  }
+  static getOneVolunteer(id, lang) {
+    return $api.get(`volunteer/id?lang=${lang}&id=${id}`);
+  }
 }
 
 export class ServicesService {

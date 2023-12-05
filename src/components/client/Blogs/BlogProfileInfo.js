@@ -15,7 +15,7 @@ import { RedableFormatExactly } from "@/utils/dayjs";
 import { LINK_URLS } from "@/utils/constants";
 import InformationService from "@/services/InformationService";
 import BackLink from "@/components/client/BackLink";
-import BlogProfillePreview from "@/components/server/BlogProfillePreview";
+import GuideProfillePreview from "@/components/server/GuideProfillePreview";
 import userFillLogo from "@/assets/img/icons/user-fill.svg";
 import EmptyBlock from "@/components/server/EmptyBlock";
 
@@ -188,7 +188,7 @@ const BlogProfileInfo = ({ lng, slug }) => {
       <div className="blog-profile-preview__back">
         <BackLink lng={lng} small />
       </div>
-      <BlogProfillePreview data={data} lng={lng} infoConnect={infoConnect} />
+      <GuideProfillePreview data={data} lng={lng} infoConnect={infoConnect} />
       <h3 className="title title-h3 blog-profile-preview__title-block">
         {tDefault("mySuggestions")}
       </h3>

@@ -141,6 +141,10 @@ iframe {
   }
   &-small {
     max-width: 390px;
+    @include mobile {
+      max-width: 100%;
+      padding: 0;
+    }
   }
   &-middle {
     max-width: 640px;
@@ -151,8 +155,14 @@ iframe {
 }
 
 .under-header {
-  margin-top: 125px;
+  margin-top: 92px;
   margin-bottom: 2.5em;
+  @include small-desktop {
+    margin-top: 84px;
+  }
+  @include mobile {
+    margin-top: 68.83px;
+  }
 }
 
 .js-focus-visible :focus:not(.focus-visible) {
@@ -520,9 +530,24 @@ iframe {
   display: grid;
   &-3 {
     grid-template-columns: repeat(3, 1fr);
+    @include small-tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include small-mobile {
+      grid-template-columns: 1fr;
+    }
   }
   &-4 {
     grid-template-columns: repeat(4, 1fr);
+    @include tablet {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @include small-tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include small-mobile {
+      grid-template-columns: 1fr;
+    }
   }
 }
 
@@ -767,5 +792,27 @@ iframe {
 :where(.css-dev-only-do-not-override-1gjejum).ant-tabs .ant-tabs-tab+.ant-tabs-tab {
   @include tablet {
     margin-left: 20px;
+  }
+}
+
+:where(.css-dev-only-do-not-override-1gjejum).ant-select-multiple .ant-select-selection-item {
+  max-width: max-content!important;
+}
+
+.ant-select-item-empty {
+  .ant-empty {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.ant-radio-group {
+  .ant-radio-button-wrapper {
+    @include mobile {
+      font-size: .875rem!important;
+      white-space: nowrap!important;
+    }
   }
 }

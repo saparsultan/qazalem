@@ -15,6 +15,7 @@ import { useTranslation } from "@/app/i18n/client";
 import NewsService from "@/services/NewsService";
 import BlogItem from "@/components/client/Blogs/BlogItem";
 import EmptyBlock from "@/components/server/EmptyBlock";
+
 const { RangePicker } = DatePicker;
 const { Search } = Input;
 
@@ -144,104 +145,81 @@ const InterviewClient = ({ lng }) => {
 
   return (
     isClient && (
-      <section className="section section--publish news-world__container">
-        <div className="container">
-          <div className="news-world">
-            <h2 className="title title-left text-low title-h2 publish__title">
-              {t("interview")}
-            </h2>
-            <p className="publish__desc">{t("interviewDesc")}</p>
-            <div className="publish publish--two">
-              <div className="publish-filter publish-item">
-                <RangePicker value={startEndDate} onChange={onChangeDate} />
-                <Button
-                  type="primary"
-                  style={{
-                    width: "100%",
-                  }}
-                  onClick={onSubmitFilter}
-                >
-                  {tForm("apply")}
-                </Button>
-              </div>
-              <div className="publish-grid-wrap">
-                <div className="publish-search">
-                  <Search
-                    placeholder={`${tForm("search")}...`}
-                    onSearch={onSearch}
-                    value={search}
-                    onChange={onChangeSearch}
-                    className="publish-search__input"
-                    style={{
-                      width: "100%",
-                    }}
-                  />
-                </div>
-                {!isLoading &&
-                isSuccess &&
-                data.pages[0]?.results.length > 0 ? (
-                  <div className="publish-grid publish-grid--two publish-item">
-                    {!isLoading && isSuccess && data
-                      ? data?.pages[0]?.results.map(
-                          ({
-                            id,
-                            published_date,
-                            image,
-                            title,
-                            subcategory,
-                          }) => (
-                            <BlogItem
-                              key={id}
-                              id={id}
-                              date={published_date}
-                              image={image}
-                              subcategory={subcategory}
-                              title={title}
-                              lng={lng}
-                              link={link}
-                            />
-                          ),
-                        )
-                      : Array(4)
-                          .fill(0)
-                          .map((_, index) => (
-                            <div key={index} className="skeleton-blogCard">
-                              <Skeleton.Image
-                                style={{
-                                  width: "100%",
-                                  height: "100%",
-                                }}
-                                active={true}
-                                className="skeleton-blogCard__img"
-                              />
-                              <Skeleton
-                                className="skeleton-blogCard__text"
-                                active
-                              />
-                            </div>
-                          ))}
-                  </div>
-                ) : (
-                  <div className="publish-empty">
-                    <EmptyBlock description={t("noResultsFound")} />
-                  </div>
-                )}
-                {!isLoading &&
-                  isSuccess &&
-                  data.pages[0]?.results.length > 0 && (
-                    <div className="publish-pagination">
-                      <Pagination
-                        onChange={onChangeSize}
-                        defaultCurrent={pagination}
-                        total={data?.pages[0].count}
-                      />
-                    </div>
-                  )}
-              </div>
-            </div>
-          </div>
+      <div className="publish publish--two">
+        <div className="publish-filter publish-item">
+          <RangePicker value={startEndDate} onChange={onChangeDate} />
+          <Button
+            type="primary"
+            style={{
+              width: "100%",
+            }}
+            onClick={onSubmitFilter}
+          >
+            {tForm("apply")}
+          </Button>
         </div>
-      </section>
+        <div className="publish-grid-wrap">
+          <div className="publish-search">
+            <Search
+              placeholder={`${tForm("search")}...`}
+              onSearch={onSearch}
+              value={search}
+              onChange={onChangeSearch}
+              className="publish-search__input"
+              style={{
+                width: "100%",
+              }}
+            />
+          </div>
+          {!isLoading && isSuccess && data.pages[0]?.results.length > 0 ? (
+            <div className="publish-grid publish-grid--two publish-item">
+              {!isLoading && isSuccess && data
+                ? data?.pages[0]?.results.map(
+                    ({ id, published_date, image, title, subcategory }) => (
+                      <BlogItem
+                        key={id}
+                        id={id}
+                        date={published_date}
+                        image={image}
+                        subcategory={subcategory}
+                        title={title}
+                        lng={lng}
+                        link={link}
+                      />
+                    ),
+                  )
+                : Array(4)
+                    .fill(0)
+                    .map((_, index) => (
+                      <div key={index} className="skeleton-blogCard">
+                        <Skeleton.Image
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                          }}
+                          active={true}
+                          className="skeleton-blogCard__img"
+                        />
+                        <Skeleton className="skeleton-blogCard__text" active />
+                      </div>
+                    ))}
+            </div>
+          ) : (
+            <div className="publish-empty">
+              <EmptyBlock description={t("noResultsFound")} />
+            </div>
+          )}
+          {!isLoading && isSuccess && data.pages[0]?.results.length > 0 && (
+            <div className="publish-pagination">
+              <Pagination
+                onChange={onChangeSize}
+                defaultCurrent={pagination}
+                total={data?.pages[0].count}
+              />
+            </div>
+          )}
+        </div>
+      </div>
     )
   );
 };

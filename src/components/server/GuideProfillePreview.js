@@ -1,11 +1,10 @@
-import React from "react";
 import Image from "next/image";
 import { Button, Rate } from "antd";
 import { useTranslation } from "@/app/i18n/client";
 import userLogo from "@/assets/img/icons/user.svg";
 import locationLogo from "@/assets/img/icons/location.svg";
 
-const BlogProfillePreview = ({ data, lng, infoConnect }) => {
+const GuideProfillePreview = ({ data, lng, infoConnect }) => {
   const { t: tMessage } = useTranslation(lng, "message");
   const { t: tDefault } = useTranslation(lng, "default");
   const getReviewWord = (count) => {
@@ -88,4 +87,4 @@ const BlogProfillePreview = ({ data, lng, infoConnect }) => {
   );
 };
 
-export default BlogProfillePreview;
+export default GuideProfillePreview;

@@ -41,5 +41,17 @@
   "ratings": "Бағалар",
   "share": "Бөлісу",
   "subscribe": "Жазылым",
-  "listGuide": "Гидтер тізімі"
+  "listGuide": "Гидтер тізімі",
+  "gallery": "Галерея",
+  "addImage": "Суретті қосу",
+  "toAddGallery": "Галерея қосу үшін ерікті ретінде тіркеліңіз.",
+  "changeGallery": "Суретті өзгерту",
+  "listVolunteer": "Еріктілер тізімі",
+  "skills": "Дағдылар",
+  "changeEducationName": "Оқу орнын өзгерту",
+  "addEducationName": "Білім беру мекемесін қосу",
+  "educationName": "Білім беру мекемесі",
+  "events": "Іс-шаралар",
+  "addEvent": "Іс-шараны қосу",
+  "changeEvent": "Іс-шараны өзгерту"
 }

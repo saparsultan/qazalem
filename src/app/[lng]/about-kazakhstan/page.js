@@ -1,6 +1,6 @@
 import AboutCountryClient from "@/components/client/Information/AboutCountry.client";
 
-const AboutKazakhstan = ({ params: { lng } }) => {
+export default async function AboutKazakhstan({ params: { lng } }) {
   return (
     <section className="section section--publish about-country__container">
       <div className="container">
@@ -11,6 +11,4 @@ const AboutKazakhstan = ({ params: { lng } }) => {
       </div>
     </section>
   );
-};
-
-export default AboutKazakhstan;
+}

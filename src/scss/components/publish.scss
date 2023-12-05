@@ -191,6 +191,11 @@
     align-items: center;
     justify-content: center;
     padding: 1em;
+    @include small-tablet {
+      justify-content: flex-start;
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 }
 
@@ -313,6 +318,24 @@
             opacity: .5;
           }
         }
+    }
+  }
+}
+
+.ant {
+  &-collapse {
+    &-header {
+      font-size: 1rem!important;
+      padding: 12px!important;
+      .ant-collapse-expand-icon {
+        margin-inline-start: 0!important;
+      }
+    }
+    &-content {
+      &-box {
+        font-size: 1rem!important;
+        padding: 1em!important;
+      }
     }
   }
 }

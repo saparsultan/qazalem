@@ -70,7 +70,7 @@ const AboutCountryPageClient = ({ lng }) => {
             />
           </div>
         </div>
-        <AboutCountryAside />
+        <AboutCountryAside data={data} />
       </div>
     </>
   );

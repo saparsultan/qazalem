@@ -124,4 +124,118 @@ export default class UserService {
       },
     });
   }
+  static registerVolunteer(token, data) {
+    return $apiPrivate.post("volunteer/register", data, {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+  }
+  static registerVolunteerGallery(token, data) {
+    return $apiPrivate.post("volunteer/gallery", data, {
+      headers: {
+        Authorization: "Bearer " + token,
+        "Content-Type": "multipart/form-data",
+      },
+    });
+  }
+  static updateVolunteerGallery(id, token, data) {
+    return $apiPrivate.put(`volunteer/gallery/update/${id}`, data, {
+      headers: {
+        Authorization: "Bearer " + token,
+        "Content-Type": "multipart/form-data",
+      },
+    });
+  }
+  static deleteVolunteerGallery(id, token) {
+    return $apiPrivate.delete(`volunteer/gallery/delete/${id}`, {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+  }
+  static getProfileVolunteerEducation(lang) {
+    return $api.get(`volunteer/education/all?lang=${lang}`);
+  }
+  static getProfileVolunteerSkills(lang) {
+    return $api.get(`volunteer/skills/get?lang=${lang}`);
+  }
+  static getMyProfileVolunteer(token) {
+    return $api.get("volunteer/get", {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+  }
+  static updateMyProfileVolunteer(token, data) {
+    return $apiPrivate.put("volunteer/update", data, {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+  }
+  static getMyProfileVolunteerGallery(token) {
+    return $api.get("volunteer/gallery/get", {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+  }
+  static createVolunteerEducationName(token, data) {
+    return $apiPrivate.post("volunteer/education_name", data, {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+  }
+  static getVolunteerEducationName(token) {
+    return $apiPrivate.get("volunteer/education_name/get", {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+  }
+  static updateVolunteerEducationName(id, token, data) {
+    return $apiPrivate.put(`volunteer/education_name/update/${id}`, data, {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+  }
+  static deleteVolunteerEducationName(id, token) {
+    return $apiPrivate.delete(`volunteer/education_name/delete/${id}`, {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+  }
+
+  static createVolunteerBecameParticipants(token, data) {
+    return $apiPrivate.post("volunteer/became_participants", data, {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+  }
+  static getVolunteerBecameParticipants(token) {
+    return $apiPrivate.get("volunteer/became_participants/get", {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+  }
+  static updateVolunteerBecameParticipants(id, token, data) {
+    return $apiPrivate.put(`volunteer/became_participants/update/${id}`, data, {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+  }
+  static deleteVolunteerBecameParticipants(id, token) {
+    return $apiPrivate.delete(`volunteer/became_participants/delete/${id}`, {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+  }
 }

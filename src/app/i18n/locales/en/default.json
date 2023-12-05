@@ -41,5 +41,17 @@
   "ratings": "Ratings",
   "share": "Subscribe",
   "subscribe": "Subscribe",
-  "listGuide": "Guide List"
+  "listGuide": "Guide List",
+  "gallery": "Gallery",
+  "addImage": "Add Image",
+  "toAddGallery": "To add a gallery, register as a volunteer.",
+  "changeGallery": "Change gallery",
+  "listVolunteer": "List of Volunteers",
+  "skills": "Skills",
+  "changeEducationName": "Change educational institution",
+  "addEducationName": "Add an educational institution",
+  "educationName": "Educational institution",
+  "events": "Events",
+  "addEvent": "Add an event",
+  "changeEvent": "Change event"
 }
