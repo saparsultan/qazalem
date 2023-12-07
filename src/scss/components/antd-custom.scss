@@ -1,0 +1,60 @@
+.ant {
+  &-form {
+    &-item {
+      &-explain {
+        &-error {
+          @include mobile {
+            font-size: .875rem !important;
+          }
+        }
+      }
+
+      &-label {
+        label {
+          @include mobile {
+            font-size: .875rem !important;
+          }
+        }
+      }
+    }
+  }
+  &-input {
+    @include mobile {
+      font-size: .938rem!important;
+    }
+  }
+  &-select {
+    @include mobile {
+      font-size: .938rem!important;
+    }
+  }
+
+  &-steps {
+    @include small-tablet {
+      flex-direction: column;
+    }
+
+    &-item {
+      @include small-tablet {
+        padding-inline-start: 0 !important;
+      }
+
+      &-content {
+        @include small-tablet {
+          display: block;
+          min-height: 48px;
+          overflow: hidden;
+        }
+      }
+
+      &-icon {
+        width: 30px;
+        height: 30px;
+      }
+
+      &-title {
+        font-size: 1rem !important;
+      }
+    }
+  }
+}

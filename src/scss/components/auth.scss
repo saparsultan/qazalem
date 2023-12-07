@@ -84,8 +84,14 @@
 }
 .signup {
   &__container {
-    margin-top: 125px;
+    margin-top: 92px;
     margin-bottom: 2.5em;;
+    @include small-desktop {
+      margin-top: 84px;
+    }
+    @include mobile {
+      margin-top: 68.83px;
+    }
   }
   &-content {
     display: flex;
@@ -93,6 +99,10 @@
     align-items: center;
     margin-top: 2.5em;
     margin-bottom: 2.5em;
+    @include mobile {
+      margin-top: 2em;
+      margin-bottom: 2em;
+    }
   }
 }
 
@@ -100,6 +110,15 @@
   &__container {
     margin-top: 91px;
     margin-bottom: 2.5em;
+  }
+  &-form {
+    &__text {
+      &-info {
+        @include mobile {
+          font-size: .873rem!important;
+        }
+      }
+    }
   }
 }
 
@@ -145,6 +164,10 @@
     display: flex;
     align-items: flex-start;
     gap: 1.25em;
+    @include mobile {
+      gap: 0;
+      flex-direction: column;
+    }
   }
   &-item {
     width: 100%;

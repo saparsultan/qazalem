@@ -54,7 +54,7 @@ const OurProjects = ({ lng }) => {
             </Link>
           </div>
         </div>
-        <div className="our-projects-options__item active">
+        <div className="our-projects-options__item">
           <div className="our-projects-options__item-icon">
             <svg
               width="44"

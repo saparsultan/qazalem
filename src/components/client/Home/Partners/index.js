@@ -1,10 +1,10 @@
 "use client";
-import { useQuery } from "@tanstack/react-query";
-import HomeService from "@/services/HomeServices";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
 import Link from "next/link";
 import Image from "next/image";
+import { useQuery } from "@tanstack/react-query";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import HomeService from "@/services/HomeServices";
 
 const Partners = () => {
   const { data, isLoading, isSuccess } = useQuery({
@@ -17,12 +17,21 @@ const Partners = () => {
 
   return (
     <Swiper
-      slidesPerView="6"
+      breakpoints={{
+        768: {
+          slidesPerView: 4,
+          spaceBetween: 20,
+        },
+        1024: {
+          slidesPerView: 5,
+        },
+        1236: {
+          slidesPerView: 6,
+        },
+      }}
+      slidesPerView="4"
       spaceBetween={20}
       navigation={true}
-      pagination={{
-        dynamicBullets: true,
-      }}
       modules={[Navigation, Pagination]}
       className="grid-slider partners-slider"
     >

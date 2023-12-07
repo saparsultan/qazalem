@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
@@ -16,8 +16,8 @@ import { LINK_URLS } from "@/utils/constants";
 import InformationService from "@/services/InformationService";
 import BackLink from "@/components/client/BackLink";
 import GuideProfillePreview from "@/components/server/GuideProfillePreview";
-import userFillLogo from "@/assets/img/icons/user-fill.svg";
 import EmptyBlock from "@/components/server/EmptyBlock";
+import userFillLogo from "@/assets/img/icons/user-fill.svg";
 
 const { TextArea } = Input;
 
@@ -221,7 +221,7 @@ const BlogProfileInfo = ({ lng, slug }) => {
                         {type_ex?.name}
                       </div>
                       <div className="video-item-text__footer-price">
-                        {price} тг.
+                        {price} ₸
                       </div>
                     </div>
                   </div>

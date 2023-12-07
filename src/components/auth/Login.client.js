@@ -10,7 +10,6 @@ import { LINK_URLS } from "@/utils/constants";
 const LoginClient = ({ lng }) => {
   const [form] = Form.useForm();
   const router = useRouter();
-  const { t } = useTranslation(lng, "auth");
   const { t: tForm } = useTranslation(lng, "form");
   const { t: tlayout } = useTranslation(lng, "layout");
   const [loading, setLoading] = useState(false);
@@ -90,7 +89,10 @@ const LoginClient = ({ lng }) => {
         >
           <Input.Password placeholder={tForm("placeholderEnterPassword")} />
         </Form.Item>
-        <div style={{ position: "absolute", top: "0", right: "0" }}>
+        <div
+          style={{ position: "absolute", top: "0", right: "0" }}
+          className="login-form__text-info"
+        >
           <Link href={`/${lng}/${LINK_URLS.resetPassword}`}>
             {tForm("forgotPassword")}
           </Link>
@@ -106,8 +108,10 @@ const LoginClient = ({ lng }) => {
         >
           {!loading ? tlayout("login") : ""}
         </Button>
-        {tForm("or")}&nbsp;
-        <Link href={`/${lng}/${LINK_URLS.signUp}`}>{tForm("register")}</Link>
+        <div className="login-form__text-info">
+          {tForm("or")}&nbsp;
+          <Link href={`/${lng}/${LINK_URLS.signUp}`}>{tForm("register")}</Link>
+        </div>
       </Form.Item>
     </Form>
   );

@@ -10,6 +10,7 @@ import { useTranslation } from "@/app/i18n/client";
 import InformationService from "@/services/InformationService";
 import { LINK_URLS } from "@/utils/constants";
 import EmptyBlock from "@/components/server/EmptyBlock";
+import emptyLogo from "@/assets/img/default.png";
 import userLogo from "@/assets/img/icons/user.svg";
 import locationLogo from "@/assets/img/icons/location.svg";
 
@@ -180,7 +181,7 @@ const GuideClient = ({ lng }) => {
                       </div>
                       <div className="blog-profile-image">
                         <Image
-                          src={guide?.image}
+                          src={guide?.image ? guide?.image : emptyLogo}
                           alt={guide?.firstname}
                           priority
                           width={200}

@@ -1,27 +1,22 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useQuery } from "@tanstack/react-query";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import embassy1 from "@/assets/img/embassy1.jpeg";
-import { useQuery } from "@tanstack/react-query";
-import InformationService from "@/services/InformationService";
 import { LINK_URLS } from "@/utils/constants";
-
-// Import Swiper styles
-
-// import required modules
+import InformationService from "@/services/InformationService";
 
 const HelpfulInformation = ({ slidesPerView, lng }) => {
   const { data, isLoading, isSuccess } = useQuery({
-    queryKey: ["sosCountry"],
+    queryKey: ["helpfulInformationCategory"],
     queryFn: async () => {
       const { data } = await InformationService.getHelpfulInformationCategory(
         lng,
-        5,
+        6,
       );
       return data;
     },

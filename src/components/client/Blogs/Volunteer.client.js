@@ -14,6 +14,7 @@ import EmptyBlock from "@/components/server/EmptyBlock";
 import locationLogo from "@/assets/img/icons/location.svg";
 import educationLogo from "@/assets/img/icons/education.svg";
 import bookLogo from "@/assets/img/icons/book.svg";
+import emptyLogo from "@/assets/img/default.png";
 
 const VolunteerClient = ({ lng }) => {
   const [modal, contextHolder] = Modal.useModal();
@@ -77,8 +78,6 @@ const VolunteerClient = ({ lng }) => {
       return data;
     },
   });
-
-  console.log({ dataSkills });
 
   const { data, isLoading, isSuccess } = useQuery({
     queryKey: [
@@ -255,7 +254,7 @@ const VolunteerClient = ({ lng }) => {
                   <div className="blog-profile" key={id}>
                     <div className="blog-profile-image">
                       <Image
-                        src={volunteer?.image}
+                        src={volunteer?.image ? volunteer?.image : emptyLogo}
                         alt={volunteer?.firstname}
                         priority
                         width={200}
