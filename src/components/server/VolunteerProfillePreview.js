@@ -34,86 +34,102 @@ const VolunteerProfillePreview = ({ data, lng, infoConnect }) => {
           {data?.description}
         </div>
         <div className="blog-profile-info__list">
-          <div className="blog-profile-info__item">
-            <Image
-              src={instaLogo}
-              alt="insta logo"
-              className="blog-profile-info__item-logo"
-            />
-            <div className="blog-profile-info__item-text">
-              {data?.volunteer.social_network?.instagram}
+          {data?.volunteer.social_network?.instagram && (
+            <div className="blog-profile-info__item">
+              <Image
+                src={instaLogo}
+                alt="insta logo"
+                className="blog-profile-info__item-logo"
+              />
+              <div className="blog-profile-info__item-text">
+                {data?.volunteer.social_network?.instagram}
+              </div>
             </div>
-          </div>
-          <div className="blog-profile-info__item">
-            <Image
-              src={vkLogo}
-              alt="vk logo"
-              className="blog-profile-info__item-logo"
-            />
-            <div className="blog-profile-info__item-text">
-              {data?.volunteer.social_network?.vk}
+          )}
+          {data?.volunteer.social_network?.vk && (
+            <div className="blog-profile-info__item">
+              <Image
+                src={vkLogo}
+                alt="vk logo"
+                className="blog-profile-info__item-logo"
+              />
+              <div className="blog-profile-info__item-text">
+                {data?.volunteer.social_network?.vk}
+              </div>
             </div>
-          </div>
-          <div className="blog-profile-info__item">
-            <Image
-              src={fbLogo}
-              alt="facebook logo"
-              className="blog-profile-info__item-logo"
-            />
-            <div className="blog-profile-info__item-text">
-              {data?.volunteer.social_network?.facebook}
+          )}
+          {data?.volunteer.social_network?.facebook && (
+            <div className="blog-profile-info__item">
+              <Image
+                src={fbLogo}
+                alt="facebook logo"
+                className="blog-profile-info__item-logo"
+              />
+              <div className="blog-profile-info__item-text">
+                {data?.volunteer.social_network?.facebook}
+              </div>
             </div>
-          </div>
-          <div className="blog-profile-info__item">
-            <Image
-              src={twitterLogo}
-              alt="twitterx logo"
-              className="blog-profile-info__item-logo"
-            />
-            <div className="blog-profile-info__item-text">
-              {data?.volunteer.social_network?.twitter}
+          )}
+          {data?.volunteer.social_network?.twitter && (
+            <div className="blog-profile-info__item">
+              <Image
+                src={twitterLogo}
+                alt="twitterx logo"
+                className="blog-profile-info__item-logo"
+              />
+              <div className="blog-profile-info__item-text">
+                {data?.volunteer.social_network?.twitter}
+              </div>
             </div>
-          </div>
-          <div className="blog-profile-info__item">
-            <Image
-              src={tiktokLogo}
-              alt="tiktok logo"
-              className="blog-profile-info__item-logo"
-            />
-            <div className="blog-profile-info__item-text">
-              {data?.volunteer.social_network?.tiktok}
+          )}
+          {data?.volunteer.social_network?.tiktok && (
+            <div className="blog-profile-info__item">
+              <Image
+                src={tiktokLogo}
+                alt="tiktok logo"
+                className="blog-profile-info__item-logo"
+              />
+              <div className="blog-profile-info__item-text">
+                {data?.volunteer.social_network?.tiktok}
+              </div>
             </div>
-          </div>
-          <div className="blog-profile-info__item">
-            <Image
-              src={youtubeLogo}
-              alt="youtube logo"
-              className="blog-profile-info__item-logo"
-            />
-            <div className="blog-profile-info__item-text">
-              {data?.volunteer.social_network?.youtube}
+          )}
+          {data?.volunteer.social_network?.youtube && (
+            <div className="blog-profile-info__item">
+              <Image
+                src={youtubeLogo}
+                alt="youtube logo"
+                className="blog-profile-info__item-logo"
+              />
+              <div className="blog-profile-info__item-text">
+                {data?.volunteer.social_network?.youtube}
+              </div>
             </div>
-          </div>
-          <div className="blog-profile-info__item">
-            <Image
-              src={discordLogo}
-              alt="discord logo"
-              className="blog-profile-info__item-logo"
-            />
-            <div className="blog-profile-info__item-text">
-              {data?.volunteer.social_network?.discord}
+          )}
+          {data?.volunteer.social_network?.discord && (
+            <div className="blog-profile-info__item">
+              <Image
+                src={discordLogo}
+                alt="discord logo"
+                className="blog-profile-info__item-logo"
+              />
+              <div className="blog-profile-info__item-text">
+                {data?.volunteer.social_network?.discord}
+              </div>
             </div>
-          </div>
-          <div className="blog-profile-info__item">
-            <Image
-              src={linkedinLogo}
-              alt="linkedin logog"
-              className="blog-profile-info__item-logo"
-            />
-            <div className="blog-profile-info__item-text">
-              {data?.volunteer.social_network?.linkedin}
+          )}
+          {data?.volunteer.social_network?.linkedin && (
+            <div className="blog-profile-info__item">
+              <Image
+                src={linkedinLogo}
+                alt="linkedin logog"
+                className="blog-profile-info__item-logo"
+              />
+              <div className="blog-profile-info__item-text">
+                {data?.volunteer.social_network?.linkedin}
+              </div>
             </div>
-          </div>
+          )}
         </div>
         <div className="blog-profile-footer">
           <div className="blog-profile-info__item">

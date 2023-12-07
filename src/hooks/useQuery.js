@@ -1,6 +1,5 @@
-import React from "react";
-import NewsService from "@/services/NewsService";
 import { useQuery } from "@tanstack/react-query";
+import NewsService from "@/services/NewsService";
 
 const useNewsOriginCountry = (key, data) => {
   return useQuery([key, data], () => NewsService.getNewsOriginCountry(data));

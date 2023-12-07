@@ -68,6 +68,7 @@ export const authOptions = {
       return session;
     },
     async jwt({ token, user }) {
+      console.log({ token, user });
       if (user) {
         token.refreshToken = user.refresh;
         token.accessToken = user.access;

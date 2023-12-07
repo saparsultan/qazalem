@@ -3,12 +3,6 @@ export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL;
 export const YOUTUBE_CHANNEL_ID = process.env.NEXT_PUBLIC_YOUTUBE;
 export const GOOGlE_API_KEY = process.env.NEXT_PUBLIC_API_GOOGLE;
 export const ALEM_META = "https://alem.amadao.network/";
-export const LANGUAGE = {
-  kk: "Қазақша",
-  ru: "Русский",
-  en: "English",
-  cn: "中文",
-};
 
 export const LINK_URLS = {
   home: "/",

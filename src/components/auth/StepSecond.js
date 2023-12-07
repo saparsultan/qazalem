@@ -2,8 +2,8 @@
 import { Form, Input, Select, DatePicker, Button } from "antd";
 import { useQuery } from "@tanstack/react-query";
 import InputMask from "react-input-mask";
-import AuthService from "@/services/AuthService";
 import { useTranslation } from "@/app/i18n/client";
+import AuthService from "@/services/AuthService";
 
 const StepSecond = ({
   lng,
@@ -121,7 +121,7 @@ const StepSecond = ({
             rules={[
               {
                 pattern: /^\d{12}$/,
-                message: t("requiredField"),
+                message: t("requiredIin"),
               },
             ]}
           >
