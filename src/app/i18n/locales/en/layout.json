@@ -26,5 +26,7 @@
   "infoGuide": "Guide Information",
   "yesterday": "Yesterday",
   "today": "Today",
-  "infoVolunteer": "Volunteer Information"
+  "infoVolunteer": "Volunteer Information",
+  "notFoundDesc": "We can't find the page you need",
+  "toHome": "To home"
 }

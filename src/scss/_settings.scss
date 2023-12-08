@@ -820,3 +820,67 @@ iframe {
     }
   }
 }
+
+.not {
+  &-found {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    &__container {
+      margin-top: 92px;
+      padding-top: 6.25em;
+      padding-bottom: 6.25em;
+      @include small-tablet {
+        padding-top: 1.875em;
+        padding-bottom: 1.875em;
+      }
+      @include small-desktop {
+        margin-top: 84px;
+      }
+      @include mobile {
+        margin-top: 68.83px;
+      }
+    }
+    &__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1em;
+      @include mobile {
+        svg {
+          width: 250px;
+          height: 250px;
+        }
+      }
+    }
+    &__title {
+      font-variant-numeric: normal;
+      font-size: 4rem;
+      text-align: center!important;
+      color: #2c3e50;
+      margin-bottom: .1875em;
+      @include mobile {
+        font-size: 3rem;
+      }
+    }
+    &__desc {
+      font-size: 1.063rem;
+      margin-bottom: 1.1764705882352942em;
+      @include mobile {
+        font-size: 1rem;
+      }
+    }
+    &__link {
+      font-size: 1rem;
+      padding: .625em 1.25em;
+      color: #2c3e50;
+      background-color: var(--primary-color);
+      border-radius: 12px;
+      transition: color .15s linear;
+      &:hover {
+        color: var(--light-color);
+      }
+    }
+  }
+}

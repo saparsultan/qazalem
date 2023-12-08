@@ -5,13 +5,13 @@ import { useTranslation } from "@/app/i18n/client";
 import UserService from "@/services/UserService";
 
 const FormGuide = ({ lng, setInfoGuide, session }) => {
-  const { message, notification } = App.useApp();
+  const { message, modal, notification } = App.useApp();
   const [form] = Form.useForm();
   const queryClient = useQueryClient();
   const { t: tForm } = useTranslation(lng, "form");
   const { t: tMessage } = useTranslation(lng, "message");
 
-  const { data, isLoading, isSuccess } = useQuery({
+  const { data } = useQuery({
     queryKey: ["guideDescription", session?.accessToken],
     queryFn: async () => {
       const { data } = await UserService.getDescriptionGuide(
@@ -58,7 +58,7 @@ const FormGuide = ({ lng, setInfoGuide, session }) => {
             ? values.descriptionCn
             : "",
       };
-      await UserService.registerGuide(session?.accessToken, formData);
+      await UserService.registerGuide(session?.accessToken, formData, lng);
     },
     onSuccess: async () => {
       await message.success(tMessage("registerSuccessGuide"));
@@ -70,9 +70,32 @@ const FormGuide = ({ lng, setInfoGuide, session }) => {
       });
     },
     onError: async (error) => {
-      console.error("Error register guide form", error);
+      // console.error("Error register guide form", error);
       if (error.response.status === 400) {
-        await message.error(tMessage("errorFilledProfile"));
+        await modal.warning({
+          title: tMessage("warning"),
+          content: (
+            <ul
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "4px",
+                listStyle: "disc",
+              }}
+            >
+              <li>{error.response.data.city && error.response.data.city}</li>
+              <li>{error.response.data.image && error.response.data.image}</li>
+              <li>
+                {error.response.data.middlename &&
+                  error.response.data.middlename}
+              </li>
+              <li>
+                {error.response.data.phone_number &&
+                  error.response.data.phone_number}
+              </li>
+            </ul>
+          ),
+        });
       } else {
         await message.error(tMessage("registerError"));
       }

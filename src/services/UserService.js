@@ -82,8 +82,8 @@ export default class UserService {
   static getSelectGuideTypeEx(lang) {
     return $api.get(`guide/type_ex/?lang=${lang}`);
   }
-  static registerGuide(token, data) {
-    return $apiPrivate.post("guide/register", data, {
+  static registerGuide(token, data, lang) {
+    return $apiPrivate.post(`guide/register?lang=${lang}`, data, {
       headers: {
         Authorization: "Bearer " + token,
       },
@@ -124,8 +124,8 @@ export default class UserService {
       },
     });
   }
-  static registerVolunteer(token, data) {
-    return $apiPrivate.post("volunteer/register", data, {
+  static registerVolunteer(token, data, lang) {
+    return $apiPrivate.post(`volunteer/register?lang=${lang}`, data, {
       headers: {
         Authorization: "Bearer " + token,
       },

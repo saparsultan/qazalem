@@ -21,8 +21,8 @@ const CommentList = ({ lng, infoGuide, session }) => {
   });
   return (
     <>
-      {!isLoading && isSuccess && data?.results.length < 1 ? (
-        <div className="publish-empty">
+      {!data?.results ? (
+        <div className="publish-empty" style={{ backgroundColor: "#fff" }}>
           <EmptyBlock description={tDefault("noResultsFound")} />
         </div>
       ) : (

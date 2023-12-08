@@ -37,7 +37,7 @@ export async function generateMetadata({ params: { lng } }) {
   return GenerateMetadata();
 }
 
-const RootLayout = async ({ children, params: { lng } }) => {
+export default async function RootLayout({ children, params: { lng } }) {
   const session = await getServerSession(authOptions);
   let locale;
   switch (lng) {
@@ -74,5 +74,4 @@ const RootLayout = async ({ children, params: { lng } }) => {
       </body>
     </html>
   );
-};
-export default RootLayout;
+}
