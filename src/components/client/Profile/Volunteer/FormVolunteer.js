@@ -488,7 +488,7 @@ const FormGuide = ({ lng, session }) => {
           </Form.Item>
           <Form.Item
             name="educationDescriptionKk"
-            label={tForm("educationDescriptionKk")}
+            label={tForm("educationDescriptionKz")}
             rules={[
               {
                 required: true,

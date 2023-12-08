@@ -53,5 +53,6 @@
   "educationName": "Educational institution",
   "events": "Events",
   "addEvent": "Add an event",
-  "changeEvent": "Change event"
+  "changeEvent": "Change event",
+  "becameParticipants": "Events in which I took part"
 }

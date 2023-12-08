@@ -53,5 +53,6 @@
   "educationName": "Білім беру мекемесі",
   "events": "Іс-шаралар",
   "addEvent": "Іс-шараны қосу",
-  "changeEvent": "Іс-шараны өзгерту"
+  "changeEvent": "Іс-шараны өзгерту",
+  "becameParticipants": "Мен қатысқан іс-шаралар"
 }

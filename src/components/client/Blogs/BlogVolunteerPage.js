@@ -68,7 +68,7 @@ const BlogVolunteerPage = ({ data, lng }) => {
           </div>
         )}
         <div className="blog-profile-preview__head-block">
-          <h3 className="title title-h3">Стали участниками</h3>
+          <h3 className="title title-h3">{tDefault("becameParticipants")}</h3>
         </div>
         {!data?.becameparticipants ? (
           <div className="publish-empty">
