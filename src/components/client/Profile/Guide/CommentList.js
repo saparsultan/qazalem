@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Rate } from "antd";
+import { useSession } from "next-auth/react";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "@/app/i18n/client";
 import { RedableFormatExactly } from "@/utils/dayjs";
@@ -7,7 +8,8 @@ import InformationService from "@/services/InformationService";
 import EmptyBlock from "@/components/server/EmptyBlock";
 import userFillLogo from "@/assets/img/icons/user-fill.svg";
 
-const CommentList = ({ lng, infoGuide, session }) => {
+const CommentList = ({ lng, infoGuide }) => {
+  const { data: session } = useSession();
   const { t: tDefault } = useTranslation(lng, "default");
   const { data, isLoading, isSuccess } = useQuery({
     queryKey: ["myGuideComments", session?.user?.guide_id],

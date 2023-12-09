@@ -1,10 +1,12 @@
 import { useEffect } from "react";
+import { useSession } from "next-auth/react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Alert, App, Button, Form, Input, Select, Skeleton } from "antd";
 import { useTranslation } from "@/app/i18n/client";
 import UserService from "@/services/UserService";
 
-const FormGuide = ({ lng, session }) => {
+const FormGuide = ({ lng }) => {
+  const { data: session } = useSession();
   const { message, modal, notification } = App.useApp();
   const [form] = Form.useForm();
   const queryClient = useQueryClient();
@@ -117,19 +119,19 @@ const FormGuide = ({ lng, session }) => {
                 listStyle: "disc",
               }}
             >
-              <li>{error.response.data.city && error.response.data.city}</li>
-              <li>{error.response.data.image && error.response.data.image}</li>
-              <li>
-                {error.response.data.middlename &&
-                  error.response.data.middlename}
-              </li>
-              <li>
-                {error.response.data.phone_number &&
-                  error.response.data.phone_number}
-              </li>
-              <li>
-                {error.response.data.instagram && error.response.data.instagram}
-              </li>
+              {error.response.data.city && <li>{error.response.data.city}</li>}
+              {error.response.data.image && (
+                <li>{error.response.data.image}</li>
+              )}
+              {error.response.data.middlename && (
+                <li>{error.response.data.middlename}</li>
+              )}
+              {error.response.data.phone_number && (
+                <li>{error.response.data.phone_number}</li>
+              )}
+              {error.response.data.instagram && (
+                <li>{error.response.data.instagram}</li>
+              )}
             </ul>
           ),
         });

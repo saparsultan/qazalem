@@ -1,5 +1,6 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { App, Button, Drawer, Modal, Space } from "antd";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
@@ -11,7 +12,8 @@ import beforeUpload from "@/utils/beforeUpload";
 import UploadImageIcon from "@/components/server/UploadImageIcon";
 import defaultAvatar from "@/assets/img/default.png";
 
-const FormGuideVideo = ({ lng, session }) => {
+const FormGuideVideo = ({ lng }) => {
+  const { data: session } = useSession();
   const { message } = App.useApp();
   const queryClient = useQueryClient();
   const { t: tForm } = useTranslation(lng, "form");

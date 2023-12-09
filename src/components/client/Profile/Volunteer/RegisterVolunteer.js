@@ -16,28 +16,22 @@ const RegisterGuide = ({ lng, session }) => {
       label: session?.user?.guide_id
         ? tDefault("description")
         : tDefault("formRegistration"),
-      children: (
-        <FormVolunteer
-          setInfoGuide={setInfoGuide}
-          lng={lng}
-          session={session}
-        />
-      ),
+      children: <FormVolunteer setInfoGuide={setInfoGuide} lng={lng} />,
     },
     {
       key: "2",
       label: tDefault("gallery"),
-      children: <FormGallery lng={lng} session={session} />,
+      children: <FormGallery lng={lng} />,
     },
     {
       key: "3",
       label: tDefault("events"),
-      children: <FormEvent lng={lng} session={session} />,
+      children: <FormEvent lng={lng} />,
     },
     {
       key: "4",
       label: tDefault("educationName"),
-      children: <FormEducationName lng={lng} session={session} />,
+      children: <FormEducationName lng={lng} />,
     },
   ];
 

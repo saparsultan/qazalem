@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useSession } from "next-auth/react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   App,
@@ -19,7 +20,8 @@ import {
 import { useTranslation } from "@/app/i18n/client";
 import UserService from "@/services/UserService";
 
-const FormEducationName = ({ lng, session }) => {
+const FormEducationName = ({ lng }) => {
+  const { data: session } = useSession();
   const { message, notification } = App.useApp();
   const [form] = Form.useForm();
   const queryClient = useQueryClient();

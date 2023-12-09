@@ -15,21 +15,17 @@ const RegisterGuide = ({ lng, session }) => {
       label: session?.user?.volunteer_id
         ? tDefault("description")
         : tDefault("formRegistration"),
-      children: (
-        <FormGuide setInfoGuide={setInfoGuide} lng={lng} session={session} />
-      ),
+      children: <FormGuide setInfoGuide={setInfoGuide} lng={lng} />,
     },
     {
       key: "2",
       label: tDefault("mySuggestions"),
-      children: <FormGuideVideo lng={lng} session={session} />,
+      children: <FormGuideVideo lng={lng} />,
     },
     {
       key: "3",
       label: tDefault("reviews"),
-      children: (
-        <CommentList infoGuide={infoGuide} lng={lng} session={session} />
-      ),
+      children: <CommentList infoGuide={infoGuide} lng={lng} />,
     },
   ];
 

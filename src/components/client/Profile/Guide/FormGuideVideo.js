@@ -10,12 +10,14 @@ import {
   Select,
   Space,
 } from "antd";
+import { useSession } from "next-auth/react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "@/app/i18n/client";
 import UserService from "@/services/UserService";
 import GuideVideoList from "@/components/client/Profile/Guide/GuideVideoList";
 
-const FormGuideVideo = ({ lng, session }) => {
+const FormGuideVideo = ({ lng }) => {
+  const { data: session } = useSession();
   const { message } = App.useApp();
   const [form] = Form.useForm();
   const queryClient = useQueryClient();
