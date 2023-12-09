@@ -1,7 +1,7 @@
 import React from "react";
-import BlogItem from "@/components/client/Blogs/BlogItem";
 import { Skeleton } from "antd";
-const BlogList = ({ data, isLoading, isSuccess, link }) => {
+import BlogItem from "@/components/client/Blogs/BlogItem";
+const BlogList = ({ data, isLoading, isSuccess, link, lng }) => {
   return (
     <div className="blog-list">
       {!isLoading && isSuccess && data?.results.length > 0
@@ -15,6 +15,7 @@ const BlogList = ({ data, isLoading, isSuccess, link }) => {
                 title={title}
                 subcategory={subcategory}
                 link={link}
+                lng={lng}
               />
             ),
           )

@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import LinesEllipsis from "react-lines-ellipsis";
 import { RedableFormat } from "@/utils/dayjs";
 const BlogItem = ({
   id,

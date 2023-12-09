@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
 import { useInfiniteQuery } from "@tanstack/react-query";
-import BlogList from "@/components/layout/BlogList";
+import { useTranslation } from "@/app/i18n/client";
 import NewsService from "@/services/NewsService";
 import { LINK_URLS } from "@/utils/constants";
+import BlogList from "@/components/layout/BlogList";
 import MoreLink from "@/components/layout/MoreLink";
-import { useTranslation } from "@/app/i18n/client";
 
 const InterviewHome = ({ lng }) => {
   const { t } = useTranslation(lng, "home");
@@ -34,6 +34,7 @@ const InterviewHome = ({ lng }) => {
         isLoading={isLoading}
         isSuccess={isSuccess}
         link={link}
+        lng={lng}
       />
       <MoreLink link={link}>{t("allInterview")}</MoreLink>
     </>

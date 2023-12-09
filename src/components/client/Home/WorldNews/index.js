@@ -73,6 +73,7 @@ const NewsWorldHome = ({ lng }) => {
               isLoading={isLoading}
               isSuccess={isSuccess}
               link={link}
+              lng={lng}
             />
           ) : (
             <div className="blog-list">
@@ -103,6 +104,7 @@ const NewsWorldHome = ({ lng }) => {
                   isLoading={isLoading}
                   isSuccess={isSuccess}
                   link={link}
+                  lng={lng}
                 />
               </TabPanel>
             );
