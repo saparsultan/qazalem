@@ -2,9 +2,9 @@ import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
 import { App } from "antd";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { LINK_URLS } from "@/utils/constants";
 import SideBar from "@/components/client/Profile/SideBar";
 import NavLinks from "@/components/client/Profile/NavLinks";
-import { LINK_URLS } from "@/utils/constants";
 
 export default async function ProfileLayout({ children, params: { lng } }) {
   const session = await getServerSession(authOptions);

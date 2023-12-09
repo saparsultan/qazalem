@@ -36,9 +36,11 @@ export default class InformationService {
   static getCallCenters(lng) {
     return $api.get(`call_center/content?lang=${lng}`);
   }
-
   static getKazakhInvestContent(lng) {
     return $api.get(`kazakh_invest/content?lang=${lng}`);
+  }
+  static getQazTradeContent(lng) {
+    return $api.get(`qaz_trade/table?lang=${lng}`);
   }
   static getAstanaHubContent(lng) {
     return $api.get(`astana_hub/content?lang=${lng}`);

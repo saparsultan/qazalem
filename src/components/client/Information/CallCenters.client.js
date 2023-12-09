@@ -15,12 +15,14 @@ const CallCentersClient = ({ lng }) => {
     <Skeleton paragraph={{ rows: 8 }} />
   ) : (
     <div className="call__content">
-      <div
-        className="inner-html"
-        dangerouslySetInnerHTML={{
-          __html: !isLoading && isSuccess && data && data[0].content,
-        }}
-      />
+      <div className="inner-html__table">
+        <div
+          className="inner-html"
+          dangerouslySetInnerHTML={{
+            __html: !isLoading && isSuccess && data && data[0].content,
+          }}
+        />
+      </div>
     </div>
   );
 };

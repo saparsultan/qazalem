@@ -358,6 +358,15 @@
           object-fit: cover;
         }
       }
+      &--video {
+        position: relative;
+        @include tablet {
+          flex: none;
+        }
+        @include mobile {
+          height: 240px;
+        }
+      }
     }
 
     &__title {

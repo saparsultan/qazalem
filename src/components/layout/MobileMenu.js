@@ -17,7 +17,7 @@ const MobileMenu = ({ lng, showMenu, setShowMenu }) => {
     setIsClient(true);
   }, []);
 
-  const socilalList = useQuery({
+  const socialList = useQuery({
     queryKey: ["socialListHeader"],
     queryFn: async () => {
       const { data } = await HomeService.getSocial(null);
@@ -114,7 +114,7 @@ const MobileMenu = ({ lng, showMenu, setShowMenu }) => {
           </li>
         </ul>
         <div className="mobile-menu-content__social">
-          <Social data={socilalList} />
+          <Social data={socialList} />
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 "use client";
-import React, { useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 import { App, Form, Steps } from "antd";
 import { useMutation } from "@tanstack/react-query";
 import { useTranslation } from "@/app/i18n/client";
@@ -92,7 +92,12 @@ const SignupClient = ({ lng }) => {
   };
   const onChangeAvatar = (imageList) => {
     if (imageList && imageList.length) {
-      beforeUpload(message, imageList[0]?.file).then((res) => {
+      beforeUpload(
+        message,
+        imageList[0]?.file,
+        tDef("downloadImageInfo"),
+        tDef("downloadImageRequired"),
+      ).then((res) => {
         if (res === true) {
           setAvatar(imageList);
           const formData = new FormData();

@@ -3,13 +3,15 @@ import Link from "next/link";
 import Image from "next/image";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { Skeleton } from "antd";
-import { useTranslation } from "@/app/i18n/client";
-import { LINK_URLS } from "@/utils/constants";
-import "react-tabs/style/react-tabs.scss";
+import ReactPlayer from "react-player/lazy";
 import { useQuery } from "@tanstack/react-query";
+import { useTranslation } from "@/app/i18n/client";
+import { ALEM_META, LINK_URLS } from "@/utils/constants";
 import HomeService from "@/services/HomeServices";
+import "react-tabs/style/react-tabs.scss";
 
 const ServicesHome = ({ lng }) => {
+  const { t } = useTranslation(lng, "home");
   const dataTourism = useQuery({
     queryKey: ["kazakhTourismPreview"],
     queryFn: async () => {
@@ -50,7 +52,13 @@ const ServicesHome = ({ lng }) => {
     },
   });
 
-  const { t } = useTranslation(lng, "home");
+  const dataSkillsEnbek = useQuery({
+    queryKey: ["skillsEnbekPreview"],
+    queryFn: async () => {
+      const { data } = await HomeService.getAstanaSkillsEnbek(lng);
+      return data;
+    },
+  });
   return (
     <div className="company-list__content">
       <Tabs className="company-list__tabs-wrap">
@@ -62,6 +70,7 @@ const ServicesHome = ({ lng }) => {
           {/*<Tab className="tab-list__tab">KazakhExport</Tab>*/}
           {/*<Tab className="tab-list__tab">ВТП Атамекен</Tab>*/}
           <Tab className="tab-list__tab">Astana Hub</Tab>
+          <Tab className="tab-list__tab">Skills Enbek</Tab>
         </TabList>
         <TabPanel>
           <div className="company-list-content">
@@ -159,7 +168,8 @@ const ServicesHome = ({ lng }) => {
                 className="company-list-content__desc"
               ></div>
               <Link
-                href={`/${lng}/${LINK_URLS.services}`}
+                href={ALEM_META}
+                target="_blank"
                 className="btn btn-link btn-accent company-list-content__link"
               >
                 {t("learnMore")}
@@ -199,7 +209,7 @@ const ServicesHome = ({ lng }) => {
                 className="company-list-content__desc"
               ></div>
               <Link
-                href={`/${lng}/${LINK_URLS.services}`}
+                href={`/${lng}/${LINK_URLS.services}/qaztrade`}
                 className="btn btn-link btn-accent company-list-content__link"
               >
                 {t("learnMore")}
@@ -322,6 +332,47 @@ const ServicesHome = ({ lng }) => {
                   height={100}
                   className="company-list-content__img"
                   alt={`company-list-${dataAstanaHub?.data[0]?.id}`}
+                />
+              ) : (
+                <Skeleton.Image active />
+              )}
+            </div>
+          </div>
+        </TabPanel>
+
+        <TabPanel>
+          <div className="company-list-content">
+            <div className="company-list-content__item">
+              <h3 className="title title-h3 title-left company-list-content__title">
+                Skills Enbek
+              </h3>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html:
+                    !dataSkillsEnbek.isLoading &&
+                    dataSkillsEnbek.isSuccess &&
+                    dataSkillsEnbek?.data[0]?.description,
+                }}
+                className="company-list-content__desc"
+              ></div>
+              <Link
+                href={dataSkillsEnbek?.data && dataSkillsEnbek?.data[0]?.url}
+                target="_blank"
+                className="btn btn-link btn-accent company-list-content__link"
+              >
+                {t("learnMore")}
+              </Link>
+            </div>
+            <div className="company-list-content__item company-list-content__item--img company-list-content__item--video">
+              {!dataSkillsEnbek?.isLoading &&
+              dataSkillsEnbek.isSuccess &&
+              dataSkillsEnbek?.data?.length > 0 ? (
+                <ReactPlayer
+                  className="react-player"
+                  controls
+                  url={dataSkillsEnbek?.data[0]?.url_video}
+                  width="100%"
+                  height="100%"
                 />
               ) : (
                 <Skeleton.Image active />

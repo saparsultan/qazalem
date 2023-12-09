@@ -31,4 +31,7 @@ export default class HomeService {
   static getAstanaHubPreview(lng) {
     return $api.get(`astana_hub/preview?lang=${lng}`);
   }
+  static getAstanaSkillsEnbek(lng) {
+    return $api.get(`skills_enbek/preview?lang=${lng}`);
+  }
 }

@@ -29,7 +29,12 @@ const FormGuideVideo = ({ lng }) => {
 
   const onChangeAvatar = (imageList) => {
     if (imageList && imageList.length) {
-      beforeUpload(message, imageList[0]?.file).then((res) => {
+      beforeUpload(
+        message,
+        imageList[0]?.file,
+        tDefault("downloadImageInfo"),
+        tDefault("downloadImageRequired"),
+      ).then((res) => {
         if (res === true) {
           console.log({ imageList });
           setAvatar(imageList);

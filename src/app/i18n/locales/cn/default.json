@@ -54,5 +54,8 @@
     "events": "活动",
     "addEvent": "添加事件",
     "changeEvent": "变更事件",
-    "becameParticipants": "我参与过的活动"
+    "becameParticipants": "我参与过的活动",
+    "downloadImageInfo": "您只能上传JPG/PNG文件！",
+    "downloadImageRequired": "图片必须小于2MB！",
+    "exportProducts": "出口产品"
 }

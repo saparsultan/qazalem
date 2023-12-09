@@ -54,5 +54,8 @@
   "events": "Events",
   "addEvent": "Add an event",
   "changeEvent": "Change event",
-  "becameParticipants": "Events in which I took part"
+  "becameParticipants": "Events in which I took part",
+  "downloadImageInfo": "You can only upload JPG/PNG file!",
+  "downloadImageRequired": "The image must be less than 2 MB!",
+  "exportProducts": "Export products"
 }

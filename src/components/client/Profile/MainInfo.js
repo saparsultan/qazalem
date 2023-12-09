@@ -14,6 +14,7 @@ const MainInfo = ({ lng, session }) => {
   const { message, notification } = App.useApp();
   const { t: tForm } = useTranslation(lng, "form");
   const { t: tMessage } = useTranslation(lng, "message");
+  const { t: tDefault } = useTranslation(lng, "default");
   const queryClient = useQueryClient();
   const [avatar, setAvatar] = useState(null);
   const [avatarForm, setAvatarForm] = useState(null);
@@ -63,7 +64,12 @@ const MainInfo = ({ lng, session }) => {
 
   const onChangeAvatar = (imageList) => {
     if (imageList && imageList.length) {
-      beforeUpload(message, imageList[0]?.file).then((res) => {
+      beforeUpload(
+        message,
+        imageList[0]?.file,
+        tDefault("downloadImageInfo"),
+        tDefault("downloadImageRequired"),
+      ).then((res) => {
         if (res === true) {
           setAvatar(imageList);
           const formData = new FormData();

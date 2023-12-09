@@ -52,6 +52,18 @@ const HeaderClient = ({ children, lng, session }) => {
     };
   }, []);
 
+  useEffect(() => {
+    if (showMenu) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [showMenu]);
+
   const handleScroll = () => {
     if (window.scrollY > 0) {
       setIsScrolled(true);

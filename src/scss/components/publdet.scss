@@ -271,6 +271,9 @@
         line-height: 1.6;
       }
     }
+    a {
+      color: var(--accent-color)!important;
+    }
     img {
       margin-top: 1.5em;
       margin-bottom: 1.5em;
@@ -295,6 +298,16 @@
         }
       }
     }
+    &__table {
+      @include small-tablet {
+        overflow: hidden;
+      }
+      .inner-html {
+        @include small-tablet {
+          overflow-x: auto;
+        }
+      }
+    }
     .img-author {
       img {
         width: 100%;
@@ -313,9 +326,19 @@
         }
       }
       td {
+        vertical-align: baseline;
         line-height: 140%;
         padding: 0.625em 1em;
         border: 1px solid rgba(0, 0, 0, .1);
+        @include small-tablet {
+          line-height: 133%;
+          padding: 0.75em;
+        }
+        span {
+          @include small-tablet {
+            font-size: .875rem!important;
+          }
+        }
       }
     }
   }

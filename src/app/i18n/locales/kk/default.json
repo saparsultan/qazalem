@@ -54,5 +54,8 @@
   "events": "Іс-шаралар",
   "addEvent": "Іс-шараны қосу",
   "changeEvent": "Іс-шараны өзгерту",
-  "becameParticipants": "Мен қатысқан іс-шаралар"
+  "becameParticipants": "Мен қатысқан іс-шаралар",
+  "downloadImageInfo": "Сіз тек JPG/PNG файлын жүктей аласыз!",
+  "downloadImageRequired": "Сурет 2 МБ-тан аз болуы керек!",
+  "exportProducts": "Экспорттық өнім"
 }
