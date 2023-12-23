@@ -16,6 +16,9 @@ import NextAuthProvider from "@/providers/NextAuthProvider";
 import StyledComponentsRegistry from "@/providers/AntdProvider";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import GoogleAnalytics from "@/app/GoogleAnalytics";
+import YandexMetrika from "@/app/YandexMetrika";
+import YandexMetrikaParams from "@/components/client/YandexMetrikaParams";
 import "@/app/globals.css";
 import "@/scss/main.scss";
 
@@ -60,6 +63,9 @@ export default async function RootLayout({ children, params: { lng } }) {
   return (
     <html lang={lng} dir={dir(lng)}>
       <body className={inter.className}>
+        <YandexMetrika />
+        <YandexMetrikaParams />
+        <GoogleAnalytics />
         <NextAuthProvider>
           <TanstackProvider>
             <Header lng={lng} session={session} />

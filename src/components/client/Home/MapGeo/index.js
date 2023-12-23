@@ -1,6 +1,6 @@
-import { GOOGlE_API_KEY, MAP_GEO } from "@/utils/constants";
+import { MAP_GEO } from "@/utils/constants";
 
-const MapGeo = ({ lng }) => {
+export default function MapGeo({ lng }) {
   const lngMapFunc = () => {
     switch (lng) {
       case "ru":
@@ -32,6 +32,4 @@ const MapGeo = ({ lng }) => {
       ></iframe>
     </div>
   );
-};
-
-export default MapGeo;
+}

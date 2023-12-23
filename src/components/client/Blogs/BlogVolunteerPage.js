@@ -87,27 +87,28 @@ const BlogVolunteerPage = ({ data, lng }) => {
         <h3 className="title title-h3 blog-profile-preview__title-block">
           {tDefault("gallery")}
         </h3>
-        {data?.gallery && data?.gallery.length < 1 ? (
-          <div className="publish-empty">
-            <EmptyBlock description={tDefault("noResultsFound")} />
+        {data?.gallery && data?.gallery.length && data?.gallery.length > 0 ? (
+          <div className="blog-profile-preview__video">
+            {data?.gallery &&
+              data?.gallery.map(({ id, image, created_at }) => {
+                return (
+                  <div className="video-item" key={id}>
+                    <div className="video-item-img">
+                      <Image
+                        quality={75}
+                        src={image}
+                        alt={created_at}
+                        fill
+                        sizes="(min-width: 808px) 50vw, 100vw"
+                      />
+                    </div>
+                  </div>
+                );
+              })}
           </div>
         ) : (
-          <div className="blog-profile-preview__video">
-            {data?.gallery.map(({ id, image, created_at }) => {
-              return (
-                <div className="video-item" key={id}>
-                  <div className="video-item-img">
-                    <Image
-                      quality={75}
-                      src={image}
-                      alt={created_at}
-                      fill
-                      sizes="(min-width: 808px) 50vw, 100vw"
-                    />
-                  </div>
-                </div>
-              );
-            })}
+          <div className="publish-empty">
+            <EmptyBlock description={tDefault("noResultsFound")} />
           </div>
         )}
       </>

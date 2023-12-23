@@ -25,6 +25,9 @@
     gap: .5em;
     &--horizontal {
       flex-direction: row;
+      @include tablet {
+        flex-direction: column;
+      }
     }
     &__left {
       display: flex;
@@ -34,6 +37,10 @@
     &__search {
       width: 300px;
       max-width: 300px;
+      @include tablet {
+        width: 100%;
+        max-width: 100%;
+      }
       .ant-input-group-wrapper {
         height: 100%!important;
       }
@@ -67,7 +74,11 @@
     }
     &__select {
       .ant-select {
+        width: 120px;
         height: 100%!important;
+        @include tablet {
+          width: 100%;
+        }
         .ant-select-selector {
           border: none!important;
           border-radius: 12px!important;
@@ -95,9 +106,17 @@
       gap: .5em;
       height: 100%;
       margin-left: auto;
+      @include tablet {
+        margin-top: 8px;
+      }
     }
     &__submit {
       height: 100%;
+      button {
+        @include tablet {
+          font-size: .875rem;
+        }
+      }
       .ant-btn {
         height: 100%!important;
         border-radius: 12px!important;
@@ -132,8 +151,15 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 1.25em;
+    @include tablet {
+      grid-gap: 1em;
+    }
     @include small-tablet {
+      grid-template-columns: repeat(2, 1fr);
       grid-gap: .875em;
+    }
+    @include small-mobile {
+      grid-template-columns: 1fr;
     }
     &-wrap {
       display: flex;
@@ -213,8 +239,7 @@
     background-color: var(--light-color);
     border-radius: 12px;
     @include mobile {
-      padding-left: 0;
-      padding-right: 0;
+      padding: .875em;
     }
   }
   &-item {
@@ -291,7 +316,7 @@
       @include mobile {
         padding-left: 3.5em;
       }
-      &__text {
+      &-text {
         @include mobile {
           font-size: .875rem;
         }

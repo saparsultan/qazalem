@@ -489,6 +489,9 @@
       &__desc {
         font-size: 1rem;
         line-height: 147%;
+        @include mobile {
+          font-size: .875rem;
+        }
       }
       &__footer {
         display: flex;

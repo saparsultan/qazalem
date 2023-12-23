@@ -185,9 +185,6 @@ const VolunteerClient = ({ lng }) => {
             <Select
               allowClear
               placeholder={tForm("skills")}
-              style={{
-                width: 120,
-              }}
               onChange={onChangeSkills}
               value={
                 skills && skills !== ""
@@ -212,9 +209,6 @@ const VolunteerClient = ({ lng }) => {
             <Select
               allowClear
               placeholder={tForm("education")}
-              style={{
-                width: 120,
-              }}
               onChange={onChangeEducation}
               value={
                 education && education !== ""
@@ -306,6 +300,7 @@ const VolunteerClient = ({ lng }) => {
                       className="blog-profile-footer"
                       style={{
                         gridTemplateColumns: "1fr",
+                        marginTop: "auto",
                       }}
                     >
                       <Link
