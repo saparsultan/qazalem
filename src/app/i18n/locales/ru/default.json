@@ -57,5 +57,6 @@
   "becameParticipants": "Мероприятия, в которых участвовал",
   "downloadImageInfo": "Вы можете загрузить только файл JPG/PNG!",
   "downloadImageRequired": "Изображение должно быть меньше 2 МБ!",
-  "exportProducts": "Экспортная продукция"
+  "exportProducts": "Экспортная продукция",
+  "titleArchiveAnnounce": "Архив мероприятий"
 }

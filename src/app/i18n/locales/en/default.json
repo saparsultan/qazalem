@@ -57,5 +57,6 @@
   "becameParticipants": "Events in which I took part",
   "downloadImageInfo": "You can only upload JPG/PNG file!",
   "downloadImageRequired": "The image must be less than 2 MB!",
-  "exportProducts": "Export products"
+  "exportProducts": "Export products",
+  "titleArchiveAnnounce": "Архив мероприятий"
 }

@@ -26,7 +26,7 @@ dayjs.extend(localeData);
 dayjs.extend(weekOfYear);
 dayjs.extend(weekYear);
 
-const EventsClient = ({ lng }) => {
+const EventsClient = ({ lng, archive }) => {
   const pathname = usePathname();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -119,14 +119,16 @@ const EventsClient = ({ lng }) => {
         type_of_event: typeQuery,
         countries: countryQuery,
         search: searchQuery,
-        archive: false,
-        page: 1,
+        archive: archive,
+        page: pagination,
         lang: lng,
       };
       const { data } = await NewsService.getEvents(getData);
       return data;
     },
   });
+
+  console.log({ data });
 
   const getCountryLabel = (value) => {
     return (
@@ -438,7 +440,7 @@ const EventsClient = ({ lng }) => {
           <div className="publish-pagination">
             <Pagination
               onChange={onChangeSize}
-              defaultCurrent={1}
+              defaultCurrent={pagination}
               total={data?.pages[0].count}
             />
           </div>

@@ -364,3 +364,36 @@
     }
   }
 }
+
+.news {
+  &-world {
+    &__head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1em;
+      margin-bottom: 2.75em;
+      @include tablet {
+        margin-bottom: 2.25em;
+      }
+      @include mobile {
+        margin-bottom: 1.5em;
+      }
+      @include small-tablet {
+        align-items: flex-start;
+        flex-direction: column-reverse;
+        gap: .75em;
+      }
+      .title {
+        &-h2 {
+          margin-bottom: 0;
+        }
+      }
+    }
+    &__subtitle {
+      font-size: .875rem;
+      color: var(--primary-color);
+      text-decoration: underline;
+    }
+  }
+}

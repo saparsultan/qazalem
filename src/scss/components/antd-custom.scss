@@ -57,4 +57,11 @@
       }
     }
   }
+  &-pagination {
+    &-options {
+      .ant-select-selector {
+        width: 120px!important;
+      }
+    }
+  }
 }
