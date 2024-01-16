@@ -156,5 +156,18 @@
   "deleteEducationName": "Удаление учебного заведения",
   "deleteConfirmEducationName": "Вы уверены, что хотите удалить это учебное заведение?",
   "deleteBecameParticipants": "Удаление мероприятия",
-  "deleteConfirmBecameParticipants": "Вы уверены, что хотите удалить это мероприятие?"
+  "deleteConfirmBecameParticipants": "Вы уверены, что хотите удалить это мероприятие?",
+  "placeholderSelectRegion": "Выберите регион",
+  "companyName": "Наименование предприятия",
+  "placeholderCompanyName": "Введите наименование",
+  "bin": "БИН",
+  "placeholderBin": "Введите БИН",
+  "industry": "Отрасль",
+  "placeholderIndustry": "Выберите отрасль",
+  "exportedProducts": "Экспортируемая продукция",
+  "placeholderExportedProducts": "Введите продукцию",
+  "productCode": "Код товара ТНВЭД/ОКЭД",
+  "placeholderProductCode": "Введите код товара",
+  "salesGeolocation": "Геолокация сбыта",
+  "placeholderSalesGeolocation": "Введите геолокацию"
 }

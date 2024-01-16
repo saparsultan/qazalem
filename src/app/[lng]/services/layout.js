@@ -1,5 +1,5 @@
-import { App } from "antd";
+import AntdAppProvider from "@/providers/AntdAppProvider";
 
 export default function ServicesLayout({ children, params: { lng } }) {
-  return <App>{children}</App>;
+  return <AntdAppProvider>{children}</AntdAppProvider>;
 }

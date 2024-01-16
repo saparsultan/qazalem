@@ -1,4 +1,4 @@
-import { App } from "antd";
-export default async function VolunteerLayout({ children, params: { lng } }) {
-  return <App>{children}</App>;
+import AntdAppProvider from "@/providers/AntdAppProvider";
+export default function VolunteerLayout({ children, params: { lng } }) {
+  return <AntdAppProvider>{children}</AntdAppProvider>;
 }

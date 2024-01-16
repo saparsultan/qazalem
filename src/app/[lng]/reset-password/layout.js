@@ -1,8 +1,5 @@
-import { App } from "antd";
+import AntdAppProvider from "@/providers/AntdAppProvider";
 
-export default async function ResetPasswordLayout({
-  children,
-  params: { lng },
-}) {
-  return <App>{children}</App>;
+export default function ResetPasswordLayout({ children, params: { lng } }) {
+  return <AntdAppProvider>{children}</AntdAppProvider>;
 }

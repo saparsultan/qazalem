@@ -1,13 +1,13 @@
 import $api, { $apiPrivate } from "@/utils/http";
 
 export default class UserService {
-  static getUserMain(id, token) {
-    return $apiPrivate.get(`user/profile/main/${id}`, {
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-    });
-  }
+  // static getUserMain(id, token) {
+  //   return $apiPrivate.get(`user/profile/main/${id}`, {
+  //     headers: {
+  //       Authorization: "Bearer " + token,
+  //     },
+  //   });
+  // }
   static getUserPersonal(id, token) {
     return $apiPrivate.get(`user/profile/personal/${id}`, {
       headers: {

@@ -1,7 +1,6 @@
 import React from "react";
 import { Raleway } from "next/font/google";
 import { dir } from "i18next";
-import { ConfigProvider } from "antd";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import kkKZ from "antd/es/locale/kk_KZ";
@@ -14,6 +13,7 @@ import theme from "@/theme/themeConfig";
 import TanstackProvider from "@/providers/TanstackProvider";
 import NextAuthProvider from "@/providers/NextAuthProvider";
 import StyledComponentsRegistry from "@/providers/AntdProvider";
+import AntdConfigProvider from "@/providers/AntdConfigProvider";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import GoogleAnalytics from "@/app/GoogleAnalytics";
@@ -70,9 +70,9 @@ export default async function RootLayout({ children, params: { lng } }) {
           <TanstackProvider>
             <Header lng={lng} session={session} />
             <StyledComponentsRegistry>
-              <ConfigProvider theme={theme} locale={locale} key="custom-locale">
+              <AntdConfigProvider theme={theme} locale={locale}>
                 <main>{children}</main>
-              </ConfigProvider>
+              </AntdConfigProvider>
             </StyledComponentsRegistry>
             <Footer lng={lng} />
           </TanstackProvider>

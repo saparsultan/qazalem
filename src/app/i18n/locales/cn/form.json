@@ -157,5 +157,18 @@
   "deleteEducationName": "删除教育机构",
   "deleteConfirmEducationName": "您确定要删除该学校吗？",
   "deleteBecameParticipants": "删除事件",
-  "deleteConfirmBecameParticipants": "您确定要删除此活动吗？"
+  "deleteConfirmBecameParticipants": "您确定要删除此活动吗？",
+  "placeholderSelectRegion": "选择地区",
+  "companyName": "企业名称",
+  "placeholderCompanyName": "输入名字",
+  "bin": "BIN",
+  "placeholderBin": "输入BIN",
+  "industry": "行业",
+  "placeholderIndustry": "选择行业",
+  "exportedProducts": "出口产品",
+  "placeholderExportedProducts": "输入产品",
+  "productCode": "产品代码 HS/NACE",
+  "placeholderProductCode": "输入产品代码",
+  "salesGeolocation": "销售地理位置",
+  "placeholderSalesGeolocation": "输入地理位置"
 }

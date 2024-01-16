@@ -1,10 +1,10 @@
-import $api, { $apiPrivate } from "@/utils/http";
-import { BASE_URL } from "@/utils/constants";
+import $api from "@/utils/http";
 
 export default class AuthService {
   static config(lng) {
     return $api.get(`config/?lang=${lng}`);
   }
+
   static async emailExists(data) {
     return $api.post("email_exists/", { email: data });
   }
@@ -14,18 +14,6 @@ export default class AuthService {
     return $api.post(
       `login/`,
       { email, password },
-      {
-        headers: { "Content-Type": "application/json" },
-        withCredentials: true,
-      },
-    );
-  }
-
-  static async refresh(token) {
-    // console.log(apiInstance);
-    return $api.post(
-      "login/refresh/",
-      { refresh: token },
       {
         headers: { "Content-Type": "application/json" },
         withCredentials: true,
@@ -58,6 +46,7 @@ export default class AuthService {
       },
     );
   }
+
   static async registerStepSecond(
     token,
     iin_p_d,
@@ -92,6 +81,7 @@ export default class AuthService {
       },
     );
   }
+
   static async registerStepThird(
     token,
     facebook,
@@ -122,6 +112,7 @@ export default class AuthService {
       },
     );
   }
+
   static async registerStepFourth(
     token,
     move_to_kazakhstan,
@@ -146,6 +137,7 @@ export default class AuthService {
       },
     );
   }
+
   static async resetPassword(email) {
     return $api.post(
       `reset/password/send`,

@@ -1,6 +1,5 @@
-import { App } from "antd";
+import AntdAppProvider from "@/providers/AntdAppProvider";
 
-const HelpLayout = ({ children, params: { lng } }) => {
-  return <App>{children}</App>;
-};
-export default HelpLayout;
+export default function HelpLayout({ children, params: { lng } }) {
+  return <AntdAppProvider>{children}</AntdAppProvider>;
+}

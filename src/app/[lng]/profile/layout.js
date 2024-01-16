@@ -1,8 +1,8 @@
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
-import { App } from "antd";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { LINK_URLS } from "@/utils/constants";
+import AntdAppProvider from "@/providers/AntdAppProvider";
 import SideBar from "@/components/client/Profile/SideBar";
 import NavLinks from "@/components/client/Profile/NavLinks";
 
@@ -12,7 +12,7 @@ export default async function ProfileLayout({ children, params: { lng } }) {
     redirect(`/${lng}/${LINK_URLS.login}`);
   }
   return (
-    <App>
+    <AntdAppProvider>
       <section className="section profile__container">
         <div className="profile-menu__container">
           <div className="container">
@@ -30,6 +30,6 @@ export default async function ProfileLayout({ children, params: { lng } }) {
           </div>
         </div>
       </section>
-    </App>
+    </AntdAppProvider>
   );
 }

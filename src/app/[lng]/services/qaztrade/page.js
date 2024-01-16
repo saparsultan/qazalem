@@ -1,6 +1,6 @@
 import { useTranslation } from "@/app/i18n";
-import AstanaHubClient from "@/components/client/Services/AstanaHub.client";
 import BackLink from "@/components/client/BackLink";
+import QazTradeClient from "@/components/client/Services/QazTrade.client";
 export default async function QazTrade({ params: { lng } }) {
   const { t } = await useTranslation(lng, "default");
   return (
@@ -13,7 +13,7 @@ export default async function QazTrade({ params: { lng } }) {
               {t("exportProducts")}
             </h2>
           </div>
-          <AstanaHubClient lng={lng} />
+          <QazTradeClient lng={lng} />
         </div>
       </div>
     </section>

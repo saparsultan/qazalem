@@ -159,5 +159,18 @@
   "deleteEducationName": "Білім беру мекемесін жою",
   "deleteConfirmEducationName": "Бұл білім беру мекемені шынымен жойғыңыз келе ме?",
   "deleteBecameParticipants": "Іс-шараны жою",
-  "deleteConfirmBecameParticipants": "Бұл іс-шараны шынымен жойғыңыз келе ме?"
+  "deleteConfirmBecameParticipants": "Бұл іс-шараны шынымен жойғыңыз келе ме?",
+  "placeholderSelectRegion": "Аймақты таңдаңыз",
+  "companyName": "Кәсіпорын атауы",
+  "placeholderCompanyName": "Атауын енгізіңіз",
+  "bin": "БСН",
+  "placeholderBin": "БСН енгізіңіз",
+  "industry": "Сала",
+  "placeholderIndustry": "Саланы таңдаңыз",
+  "exportedProducts": "Экспортталған өнімдер",
+  "placeholderExportedProducts": "Өнімді енгізіңіз",
+  "productCode": "ТНВЭД/ОКЭД өнім коды",
+  "placeholderProductCode": "Өнім кодын енгізіңіз",
+  "salesGeolocation": "Сатудың геолокациясы",
+  "placeholderSalesGeolocation": "Геолокацияны енгізіңіз"
 }

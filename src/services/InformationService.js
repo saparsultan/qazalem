@@ -39,9 +39,6 @@ export default class InformationService {
   static getKazakhInvestContent(lng) {
     return $api.get(`kazakh_invest/content?lang=${lng}`);
   }
-  static getQazTradeContent(lng) {
-    return $api.get(`qaz_trade/table?lang=${lng}`);
-  }
   static getAstanaHubContent(lng) {
     return $api.get(`astana_hub/content?lang=${lng}`);
   }
@@ -138,5 +135,16 @@ export class ServicesService {
   }
   static async kazakhTourismRegister(data) {
     return $api.post("kazakh_tourism/form", data);
+  }
+  static getQazTradeContent(params) {
+    return $api.get("qaz_trade/table", {
+      params: params,
+    });
+  }
+  static getQazTradeRegion(lng) {
+    return $api.get(`qaz_trade/region?lang=${lng}`);
+  }
+  static getQazTradeIndustry(lng) {
+    return $api.get(`qaz_trade/industry?lang=${lng}`);
   }
 }

@@ -1,6 +1,5 @@
-import { App } from "antd";
+import AntdAppProvider from "@/providers/AntdAppProvider";
 
-const SignUpLayout = ({ children, params: { lng } }) => {
-  return <App>{children}</App>;
-};
-export default SignUpLayout;
+export default function SignUpLayout({ children, params: { lng } }) {
+  return <AntdAppProvider>{children}</AntdAppProvider>;
+}
