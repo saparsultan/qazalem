@@ -12,6 +12,7 @@ import embassy1 from "@/assets/img/embassy1.jpeg";
 import embassy2 from "@/assets/img/embassy2.jpeg";
 import embassy3 from "@/assets/img/embassy3.jpeg";
 import embassy4 from "@/assets/img/embassy4.jpeg";
+import { LINK_URLS } from "@/utils/constants";
 
 const Booking = ({ slidesPerView, lng }) => {
   const { t } = useTranslation(lng, "home");
@@ -121,10 +122,7 @@ const Booking = ({ slidesPerView, lng }) => {
           </Link>
         </SwiperSlide>
       </Swiper>
-      <MoreLink
-        link="https://www.gov.kz/memleket/entities/qazalem/activities/30461"
-        target
-      >
+      <MoreLink link={`/${lng}/${LINK_URLS.booking}`}>
         {t("learnMore")}
       </MoreLink>
     </>

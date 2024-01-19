@@ -106,6 +106,9 @@ export default class InformationService {
   static getOneVolunteer(id, lang) {
     return $api.get(`volunteer/id?lang=${lang}&id=${id}`);
   }
+  static getBookingList(lang) {
+    return $api.get(`booking_consulate/continent?lang=${lang}`);
+  }
 }
 
 export class ServicesService {

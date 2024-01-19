@@ -58,5 +58,6 @@
   "downloadImageInfo": "You can only upload JPG/PNG file!",
   "downloadImageRequired": "The image must be less than 2 MB!",
   "exportProducts": "Export products",
-  "titleArchiveAnnounce": "Архив мероприятий"
+  "titleArchiveAnnounce": "Events archive",
+  "titleBooking": "Book a visit to the embassies and consulates of Kazakhstan abroad"
 }

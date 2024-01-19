@@ -32,6 +32,7 @@ export const LINK_URLS = {
   usefulInformation: "useful-information",
   callCenters: "call-centers",
   resetPassword: "reset-password",
+  booking: "booking",
 };
 
 export const MAP_GEO = {

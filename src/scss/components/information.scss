@@ -139,6 +139,7 @@
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
+
         h2 {
           margin-bottom: .75em;
         }
@@ -151,6 +152,7 @@
   &__title {
     margin-bottom: .3333333333333333em;
   }
+
   &__desc {
     width: 50%;
     line-height: 153%;
@@ -252,6 +254,61 @@
         font-size: .875rem;
         font-weight: 500;
       }
+    }
+  }
+}
+
+.booking {
+  &__heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: .75em 1.25em;
+  }
+
+  &__list {
+    list-style: none;
+    margin-bottom: 1.25em;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1em;
+    width: 100%;
+    padding: .75em 1.25em;
+    font-weight: 500;
+    transition: color .15s ease-in;
+    @include mobile {
+      gap: .75em;
+      padding-left: 0;
+      padding-right: 0;
+      font-size: .875rem;
+    }
+    span {
+      flex: 1;
+    }
+    svg {
+      fill: rgba(0, 9, 41, .25);
+      @include mobile {
+        width: 20px;
+        height: 20px;
+      }
+    }
+    &:hover {
+      color: var(--accent-color);
+      svg {
+        fill: var(--accent-color);
+      }
+    }
+  }
+
+  &__item {
+    &:not(:last-child) {
+      border-bottom: 1px solid rgba(0, 9, 41, .1);
     }
   }
 }
