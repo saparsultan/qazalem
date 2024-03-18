@@ -13,7 +13,6 @@ import Social from "@/components/layout/Social";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { EffectCreative } from "swiper/modules";
 
 const SliderMain = ({ lng }) => {
   const { t } = useTranslation(lng, "home");
@@ -24,7 +23,7 @@ const SliderMain = ({ lng }) => {
   }, []);
 
   const { data, isLoading, isSuccess } = useQuery({
-    queryKey: ["sliderMainList"],
+    queryKey: ["sliderMainListPreview"],
     queryFn: async () => {
       const { data } = await HomeService.getSliderMain(lng, 5);
       return data;
@@ -46,7 +45,7 @@ const SliderMain = ({ lng }) => {
         centeredSlides={true}
         speed={600}
         parallax={true}
-        loop={true}
+        // loop={true}
         // autoplay={{
         //   delay: 5000,
         //   disableOnInteraction: false,
@@ -61,7 +60,7 @@ const SliderMain = ({ lng }) => {
         {!isLoading && isSuccess && data && data?.length ? (
           data.map(({ id, events, image, text, title_slider }) => {
             return (
-              <SwiperSlide key={id} className="main-slider__item">
+              <SwiperSlide key={`${id} + ${title_slider}`} className="main-slider__item">
                 <div className="main-slider__content container">
                   <h2 className="main-slider__title">{title_slider}</h2>
                   <div className="main-slider__desc">{text}</div>
