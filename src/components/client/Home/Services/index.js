@@ -12,6 +12,7 @@ import "react-tabs/style/react-tabs.scss";
 
 const ServicesHome = ({ lng }) => {
   const { t } = useTranslation(lng, "home");
+  const { t: tDefault } = useTranslation(lng, "default");
   const dataTourism = useQuery({
     queryKey: ["kazakhTourismPreview"],
     queryFn: async () => {
@@ -63,20 +64,20 @@ const ServicesHome = ({ lng }) => {
     <div className="company-list__content">
       <Tabs className="company-list__tabs-wrap">
         <TabList className="tab-list__tabs">
-          <Tab className="tab-list__tab">Kazakh Tourism</Tab>
-          <Tab className="tab-list__tab">Kazakh Invest</Tab>
+          <Tab className="tab-list__tab">{tDefault('kazakhTourism')}</Tab>
+          <Tab className="tab-list__tab">{tDefault('kazakhInvest')}</Tab>
           <Tab className="tab-list__tab">Alem Metaverse</Tab>
-          <Tab className="tab-list__tab">QazTrade</Tab>
+          <Tab className="tab-list__tab">{tDefault('qazTrade')}</Tab>
           {/*<Tab className="tab-list__tab">KazakhExport</Tab>*/}
           {/*<Tab className="tab-list__tab">ВТП Атамекен</Tab>*/}
-          <Tab className="tab-list__tab">Astana Hub</Tab>
+          <Tab className="tab-list__tab">{tDefault('astanaHub')}</Tab>
           <Tab className="tab-list__tab">Skills Enbek</Tab>
         </TabList>
         <TabPanel>
           <div className="company-list-content">
             <div className="company-list-content__item">
               <h3 className="title title-h3 title-left company-list-content__title">
-                Kazakh Tourism
+                {tDefault('kazakhTourism')}
               </h3>
               <div
                 dangerouslySetInnerHTML={{
@@ -116,7 +117,7 @@ const ServicesHome = ({ lng }) => {
           <div className="company-list-content">
             <div className="company-list-content__item">
               <h3 className="title title-h3 title-left company-list-content__title">
-                Kazakh Invest
+                {tDefault('kazakhInvest')}
               </h3>
               <div
                 dangerouslySetInnerHTML={{
@@ -197,7 +198,7 @@ const ServicesHome = ({ lng }) => {
           <div className="company-list-content">
             <div className="company-list-content__item">
               <h3 className="title title-h3 title-left company-list-content__title">
-                QazTrade
+                {tDefault('qazTrade')}
               </h3>
               <div
                 dangerouslySetInnerHTML={{
@@ -303,7 +304,7 @@ const ServicesHome = ({ lng }) => {
           <div className="company-list-content">
             <div className="company-list-content__item">
               <h3 className="title title-h3 title-left company-list-content__title">
-                Astana Hub
+                {tDefault('astanaHub')}
               </h3>
               <div
                 dangerouslySetInnerHTML={{

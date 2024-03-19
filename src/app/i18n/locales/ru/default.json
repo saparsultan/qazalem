@@ -59,5 +59,11 @@
   "downloadImageRequired": "Изображение должно быть меньше 2 МБ!",
   "exportProducts": "Экспортная продукция",
   "titleArchiveAnnounce": "Архив мероприятий",
-  "titleBooking": "Забронировать посещение посольств и консульств Казахстана за рубежом"
+  "titleBooking": "Забронировать посещение посольств и консульств Казахстана за рубежом",
+  "kazakhTourism": "Kazakh Tourism",
+  "kazakhInvest": "Kazakh Invest",
+  "qazTrade": "QazTrade",
+  "kazakhExport": "Kazakh Export",
+  "kcpAtameken": "ВТП Атамекен",
+  "astanaHub": "Astana Hub"
 }
