@@ -24,7 +24,7 @@ const HelpClient = ({ lng }) => {
     mutationFn: async (values) => {
       const data = {
         county: values?.consulCountry,
-        country_of_stay: values?.hostCountry,
+        country_of_stay: "",
         where_are_you: values?.yourLocation,
         tel_or_email: valueRadio === 0 ? values?.phone : values?.email,
         description:
@@ -38,7 +38,7 @@ const HelpClient = ({ lng }) => {
       await message.success(tMess("successSubmitted"));
       await form.setFieldsValue({
         consulCountry: null,
-        hostCountry: "",
+        // hostCountry: "",
         yourLocation: "",
         phone: "",
         email: "",
@@ -100,18 +100,18 @@ const HelpClient = ({ lng }) => {
           }
         />
       </Form.Item>
-      <Form.Item
-        label={t("labelHostCountry")}
-        name="hostCountry"
-        rules={[
-          {
-            required: true,
-            message: t("requiredField"),
-          },
-        ]}
-      >
-        <Input placeholder={t("placeholderCountryResidence")} />
-      </Form.Item>
+      {/*<Form.Item*/}
+      {/*  label={t("labelHostCountry")}*/}
+      {/*  name="hostCountry"*/}
+      {/*  rules={[*/}
+      {/*    {*/}
+      {/*      required: true,*/}
+      {/*      message: t("requiredField"),*/}
+      {/*    },*/}
+      {/*  ]}*/}
+      {/*>*/}
+      {/*  <Input placeholder={t("placeholderCountryResidence")} />*/}
+      {/*</Form.Item>*/}
       <Form.Item
         label={t("labelWhereAreYou")}
         name="yourLocation"
