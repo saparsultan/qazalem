@@ -31,7 +31,8 @@ const NewsWorldHome = ({ lng }) => {
       const getData = {
         lang: lng,
         subcategory: category,
-        published_date: "",
+        published_date_start: "",
+        published_date_end: "",
         search: "",
         page: 1,
         page_size,
