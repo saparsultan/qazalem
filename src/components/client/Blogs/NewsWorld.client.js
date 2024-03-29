@@ -88,9 +88,14 @@ const NewsWorldClient = ({ lng }) => {
       lng,
     ],
     queryFn: async () => {
+      const datesArray = publishDateQuery.split(" ");
+      const firstDate = datesArray ? datesArray[0] : "";
+      const secondDate =
+          datesArray && datesArray.length > 1 ? datesArray[1] : "";
       const getData = {
         subcategory: categoryQuery,
-        published_date: publishDateQuery,
+        published_date_start: firstDate,
+        published_date_end: secondDate,
         search: searchQuery,
         page: pagination,
         lang: lng,
